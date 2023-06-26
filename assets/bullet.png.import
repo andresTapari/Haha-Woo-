@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lcx5bt5f4rea"
-path="res://.godot/imported/basic_tile.png-5c9990c56d8dab1d7e130e93a996df4c.ctex"
+uid="uid://dqwpu3ala48bb"
+path="res://.godot/imported/bullet.png-c68d06721d4ad8b0013707b0a51654af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/basic_tile.png"
-dest_files=["res://.godot/imported/basic_tile.png-5c9990c56d8dab1d7e130e93a996df4c.ctex"]
+source_file="res://assets/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-c68d06721d4ad8b0013707b0a51654af.ctex"]
 
 [params]
 

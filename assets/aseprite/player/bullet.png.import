@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du2iqks2eopdd"
-path="res://.godot/imported/TopBarr.png-e95d5ebc4631059e74ad374bd4a87133.ctex"
+uid="uid://dow2x41ik4qq0"
+path="res://.godot/imported/bullet.png-82078afa0c32409f75d2924346c90306.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/TopBarr.png"
-dest_files=["res://.godot/imported/TopBarr.png-e95d5ebc4631059e74ad374bd4a87133.ctex"]
+source_file="res://assets/aseprite/player/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-82078afa0c32409f75d2924346c90306.ctex"]
 
 [params]
 

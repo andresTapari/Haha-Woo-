@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baqjsjrk0amg7"
-path="res://.godot/imported/solid_tile.png-63f79a7f14f39461368b4b0ab23c92c8.ctex"
+uid="uid://bt3vl64packbn"
+path="res://.godot/imported/healthbarr_placeholder.png-0ac3242a6de9df1e6e7fc0e4355b18d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lvl/tiles/solid_tile.png"
-dest_files=["res://.godot/imported/solid_tile.png-63f79a7f14f39461368b4b0ab23c92c8.ctex"]
+source_file="res://assets/aseprite/ui/healthbarr_placeholder.png"
+dest_files=["res://.godot/imported/healthbarr_placeholder.png-0ac3242a6de9df1e6e7fc0e4355b18d0.ctex"]
 
 [params]
 

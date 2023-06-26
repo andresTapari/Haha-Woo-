@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg6jvgrdrje6r"
-path="res://.godot/imported/solid_tile.png-bd74c774895e8d5ea029bae3fde8bcd0.ctex"
+uid="uid://bqsxt618hps3"
+path="res://.godot/imported/specials_placeholder_2.png-550701eefd15ac77a8c0a3aa4d3ab4aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/solid_tile.png"
-dest_files=["res://.godot/imported/solid_tile.png-bd74c774895e8d5ea029bae3fde8bcd0.ctex"]
+source_file="res://assets/aseprite/ui/specials_placeholder_2.png"
+dest_files=["res://.godot/imported/specials_placeholder_2.png-550701eefd15ac77a8c0a3aa4d3ab4aa.ctex"]
 
 [params]
 

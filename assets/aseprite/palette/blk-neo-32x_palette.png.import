@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjt3spo0t8nbl"
-path="res://.godot/imported/TopBarr.png-ceaee447a28bed34fb292c723c9e4a50.ctex"
+uid="uid://dgkot62gcwn0i"
+path="res://.godot/imported/blk-neo-32x_palette.png-9c55e4dae1f35f27918446abcc6fa9da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/TopBarr.png"
-dest_files=["res://.godot/imported/TopBarr.png-ceaee447a28bed34fb292c723c9e4a50.ctex"]
+source_file="res://assets/aseprite/palette/blk-neo-32x_palette.png"
+dest_files=["res://.godot/imported/blk-neo-32x_palette.png-9c55e4dae1f35f27918446abcc6fa9da.ctex"]
 
 [params]
 

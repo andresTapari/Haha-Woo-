@@ -8,7 +8,7 @@ The price for crispness is that you must follow the guidelines included here. If
 other font and look unsuitable.
 
 1. The fonts must be used at the intended point size for optimal results.
-    This is the table for all the fonts:
+	This is the table for all the fonts:
 
 -Pixed at 10 points or mutiplyed by whole number  eg. 20, 30, 40
 -Fivepix at 10 points or multiplyed by whole number  eg 20, 30, 40

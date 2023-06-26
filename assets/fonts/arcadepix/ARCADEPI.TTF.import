@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://rfl04y1mlf2l"
-path="res://.godot/imported/ARCADEPI.TTF-ca7f004e40ea88a624a229531ece26b9.fontdata"
+path="res://.godot/imported/ARCADEPI.TTF-90e376cf21872e30417a62a9c81df399.fontdata"
 
 [deps]
 
-source_file="res://assets/aseprite/arcadepix/ARCADEPI.TTF"
-dest_files=["res://.godot/imported/ARCADEPI.TTF-ca7f004e40ea88a624a229531ece26b9.fontdata"]
+source_file="res://assets/fonts/arcadepix/ARCADEPI.TTF"
+dest_files=["res://.godot/imported/ARCADEPI.TTF-90e376cf21872e30417a62a9c81df399.fontdata"]
 
 [params]
 

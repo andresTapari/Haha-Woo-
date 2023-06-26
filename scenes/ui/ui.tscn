@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://hneidigc50er"]
+[gd_scene load_steps=9 format=3 uid="uid://hneidigc50er"]
 
-[ext_resource type="Texture2D" uid="uid://bjt3spo0t8nbl" path="res://assets/ui/TopBarr.png" id="1_xnjom"]
+[ext_resource type="Texture2D" uid="uid://du2iqks2eopdd" path="res://assets/aseprite/ui/TopBarr.png" id="1_5ylwi"]
+[ext_resource type="Texture2D" uid="uid://c8he71evmdjro" path="res://assets/aseprite/ui/face_place_holder.png" id="2_vqc2s"]
+[ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="3_3xb5r"]
+[ext_resource type="Texture2D" uid="uid://bt3vl64packbn" path="res://assets/aseprite/ui/healthbarr_placeholder.png" id="4_2rdp8"]
+[ext_resource type="Texture2D" uid="uid://bqsxt618hps3" path="res://assets/aseprite/ui/specials_placeholder_2.png" id="5_8wjcj"]
+[ext_resource type="Texture2D" uid="uid://dtfyfbgnhni0i" path="res://assets/aseprite/ui/specials_placeholder.png" id="6_q38fu"]
+[ext_resource type="Texture2D" uid="uid://cm7p52d8sswb" path="res://assets/aseprite/ui/specials_placeholder_3.png" id="7_b26tr"]
+
+[sub_resource type="Theme" id="Theme_t6m5t"]
+default_font = ExtResource("3_3xb5r")
+default_font_size = 10
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,4 +25,62 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_xnjom")
+texture = ExtResource("1_5ylwi")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 3
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vqc2s")
+stretch_mode = 3
+
+[node name="Score_Label" type="Label" parent="."]
+texture_filter = 3
+layout_mode = 2
+offset_left = 40.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 19.0
+theme = SubResource("Theme_t6m5t")
+text = "000000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 40.0
+offset_top = 22.0
+offset_right = 112.0
+offset_bottom = 34.0
+value = 100.0
+texture_progress = ExtResource("4_2rdp8")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_right = 152.0
+offset_bottom = 40.0
+texture = ExtResource("6_q38fu")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 148.0
+offset_right = 188.0
+offset_bottom = 40.0
+texture = ExtResource("5_8wjcj")
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 184.0
+offset_right = 224.0
+offset_bottom = 40.0
+texture = ExtResource("7_b26tr")
+stretch_mode = 3

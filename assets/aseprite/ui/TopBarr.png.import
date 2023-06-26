@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmjivp7cl2bxh"
-path="res://.godot/imported/player_ship.png-df206d3d592529ff42bde7abf6f8a236.ctex"
+uid="uid://du2iqks2eopdd"
+path="res://.godot/imported/TopBarr.png-5ec71eb0e14e4ca6ed9778e69a0b555a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lvl/player_ship.png"
-dest_files=["res://.godot/imported/player_ship.png-df206d3d592529ff42bde7abf6f8a236.ctex"]
+source_file="res://assets/aseprite/ui/TopBarr.png"
+dest_files=["res://.godot/imported/TopBarr.png-5ec71eb0e14e4ca6ed9778e69a0b555a.ctex"]
 
 [params]
 
