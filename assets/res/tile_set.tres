@@ -1,0 +1,18 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bvlqh8c07tj21"]
+
+[ext_resource type="Texture2D" uid="uid://er6nu3gfxg2a" path="res://assets/lvl/tiles.png" id="1_ainko"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0i3nq"]
+texture = ExtResource("1_ainko")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+sources/2 = SubResource("TileSetAtlasSource_0i3nq")
