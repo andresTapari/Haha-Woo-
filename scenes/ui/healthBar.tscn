@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmqcn7krtyvvf"]
+
+[ext_resource type="Script" path="res://scripts/ui/healthBar.gd" id="1_4ax6b"]
+[ext_resource type="SpriteFrames" uid="uid://bj7xk1v4afi86" path="res://assets/res/health_bar_sprite_frames.tres" id="2_uqsfo"]
+
+[node name="healthBar" type="Control"]
+custom_minimum_size = Vector2(80, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 16.0
+script = ExtResource("1_4ax6b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0.010274, -0.0961539)
+sprite_frames = ExtResource("2_uqsfo")
+offset = Vector2(37, 7)

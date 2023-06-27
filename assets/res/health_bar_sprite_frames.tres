@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bj7xk1v4afi86"]
+
+[ext_resource type="Texture2D" uid="uid://bq0yjscm8tocj" path="res://assets/aseprite/ui/HealthBar/HealthBar.png" id="1_3e1i4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsp32"]
+atlas = ExtResource("1_3e1i4")
+region = Rect2(365, 0, 73, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07v2g"]
+atlas = ExtResource("1_3e1i4")
+region = Rect2(292, 0, 73, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6udmj"]
+atlas = ExtResource("1_3e1i4")
+region = Rect2(219, 0, 73, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcjws"]
+atlas = ExtResource("1_3e1i4")
+region = Rect2(146, 0, 73, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtaqu"]
+atlas = ExtResource("1_3e1i4")
+region = Rect2(73, 0, 73, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpp2r"]
+atlas = ExtResource("1_3e1i4")
+region = Rect2(0, 0, 73, 13)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsp32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07v2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6udmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcjws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtaqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpp2r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

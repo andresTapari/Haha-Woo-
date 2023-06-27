@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://75unjbos3vci"]
+
+[ext_resource type="Texture2D" uid="uid://du2iqks2eopdd" path="res://assets/aseprite/ui/TopBarr.png" id="1_dvq8f"]
+[ext_resource type="Texture2D" uid="uid://c8he71evmdjro" path="res://assets/aseprite/ui/face_place_holder.png" id="2_j4v3v"]
+[ext_resource type="Texture2D" uid="uid://dtfyfbgnhni0i" path="res://assets/aseprite/ui/specials_placeholder.png" id="2_lujwf"]
+[ext_resource type="Texture2D" uid="uid://bqsxt618hps3" path="res://assets/aseprite/ui/specials_placeholder_2.png" id="3_g3p4t"]
+[ext_resource type="Texture2D" uid="uid://cm7p52d8sswb" path="res://assets/aseprite/ui/specials_placeholder_3.png" id="4_1xru5"]
+[ext_resource type="PackedScene" uid="uid://bmqcn7krtyvvf" path="res://scenes/ui/healthBar.tscn" id="6_5ltab"]
+[ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="7_dqthh"]
+
+[sub_resource type="Theme" id="Theme_cw5lj"]
+default_font = ExtResource("7_dqthh")
+default_font_size = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_dvq8f")
+stretch_mode = 2
+
+[node name="Face" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_j4v3v")
+stretch_mode = 3
+
+[node name="Special_1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 2.0
+offset_right = 153.0
+offset_bottom = 34.0
+texture = ExtResource("2_lujwf")
+stretch_mode = 3
+
+[node name="Special_2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 2.0
+offset_right = 187.0
+offset_bottom = 34.0
+texture = ExtResource("3_g3p4t")
+stretch_mode = 3
+
+[node name="Special_3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 2.0
+offset_right = 221.0
+offset_bottom = 34.0
+texture = ExtResource("4_1xru5")
+stretch_mode = 3
+
+[node name="healthBar" parent="." instance=ExtResource("6_5ltab")]
+offset_left = 41.0
+offset_top = 19.0
+offset_right = 121.0
+offset_bottom = 35.0
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 46.0
+offset_top = 5.0
+offset_right = 114.0
+offset_bottom = 21.0
+theme = SubResource("Theme_cw5lj")
+text = "0000000"
+horizontal_alignment = 2
+vertical_alignment = 1
