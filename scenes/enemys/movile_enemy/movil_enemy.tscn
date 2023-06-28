@@ -25,6 +25,5 @@ autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
-debug_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
