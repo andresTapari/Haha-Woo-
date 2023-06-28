@@ -1,12 +1,18 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bvlqh8c07tj21"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bvlqh8c07tj21"]
 
 [ext_resource type="Texture2D" uid="uid://er6nu3gfxg2a" path="res://assets/aseprite/tiles/tiles.png" id="1_ainko"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4l1cs"]
+vertices = PackedVector2Array(-8, -3, -3, -8, 3, -8, 8, -3, 8, 3, 3, 8, -3, 8, -8, 3)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -3, -3, -8, 3, -8, 8, -3, 8, 3, 3, 8, -3, 8, -8, 3)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0i3nq"]
 texture = ExtResource("1_ainko")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4l1cs")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
