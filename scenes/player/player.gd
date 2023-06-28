@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
-var BULLET = preload("res://scenes/player/bullet.tscn")
-
 const VELOCIDAD: int = 10000
-
+var BULLET = preload("res://scenes/player/bullet.tscn")
 var direccion: Vector2 = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
@@ -12,7 +10,6 @@ func _physics_process(delta: float) -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
 	var direccion_mouse = (mouse_pos - global_position).normalized()
 	rotation = direccion_mouse.angle() + PI/2 
-	
 	# Input Teclado
 	if Input.is_action_pressed("ui_right"):
 		direccion.x += 1
@@ -32,8 +29,6 @@ func _input(event):
 		shoot()
 
 func shoot() -> void:
-	print("shoot")
 	var b = BULLET.instantiate()
 	b.transform = $Muzzle.global_transform
 	get_parent().add_child(b)
-
