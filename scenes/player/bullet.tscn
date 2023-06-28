@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddq0upu0t1aq1"]
 
-[ext_resource type="Script" path="res://scenes/player/bullet.gd" id="1_v7tkx"]
+[ext_resource type="Script" path="res://scripts/player/bullet.gd" id="1_v7tkx"]
 [ext_resource type="Texture2D" uid="uid://dow2x41ik4qq0" path="res://assets/aseprite/player/bullet.png" id="2_v3vbp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qaeyn"]

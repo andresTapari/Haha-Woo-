@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtfyfbgnhni0i"
-path="res://.godot/imported/specials_placeholder.png-1a03275ba0c9ade306e54864be5643c7.ctex"
+uid="uid://bc0i12c5b04kb"
+path="res://.godot/imported/MobileEnemey.png-aa6f708becec0196045b59e530dffb54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/ui/specials_placeholder.png"
-dest_files=["res://.godot/imported/specials_placeholder.png-1a03275ba0c9ade306e54864be5643c7.ctex"]
+source_file="res://assets/aseprite/enemys/MobileEnemey.png"
+dest_files=["res://.godot/imported/MobileEnemey.png-aa6f708becec0196045b59e530dffb54.ctex"]
 
 [params]
 

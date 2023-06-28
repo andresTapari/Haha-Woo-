@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://od6yx3hynn6k"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_62ciq"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_b5heu"]
 [ext_resource type="Texture2D" uid="uid://bsc5f1oopduo7" path="res://assets/aseprite/player/player_ship.png" id="2_3kx8f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rugm1"]
 radius = 6.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
-script = ExtResource("1_62ciq")
+script = ExtResource("1_b5heu")
 
 [node name="PlayerShip" type="Sprite2D" parent="."]
 texture = ExtResource("2_3kx8f")
@@ -19,4 +19,12 @@ shape = SubResource("CircleShape2D_rugm1")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(0, -8)
+rotation = -1.57079
+
+[node name="Muzzle2" type="Marker2D" parent="."]
+position = Vector2(5, -2)
+rotation = -1.57079
+
+[node name="Muzzle3" type="Marker2D" parent="."]
+position = Vector2(-5, -2)
 rotation = -1.57079

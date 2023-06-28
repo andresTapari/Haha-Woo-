@@ -3,6 +3,7 @@ extends CharacterBody2D
 const VELOCIDAD: int = 10000
 var BULLET = preload("res://scenes/player/bullet.tscn")
 var direccion: Vector2 = Vector2.ZERO
+var muzzle_counter: int = 0
 
 func _physics_process(delta: float) -> void:
 	direccion = Vector2.ZERO
@@ -20,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_up"):
 		direccion.y -= 1
 	direccion = direccion.normalized()
+
 	var movimiento = direccion * VELOCIDAD * delta
 	velocity = movimiento
 	move_and_slide()
@@ -30,5 +32,14 @@ func _input(event):
 
 func shoot() -> void:
 	var b = BULLET.instantiate()
-	b.transform = $Muzzle.global_transform
+	match muzzle_counter:
+		0:
+			b.transform = $Muzzle.global_transform
+		1:
+			b.transform = $Muzzle2.global_transform
+		2:
+			b.transform = $Muzzle3.global_transform
 	get_parent().add_child(b)
+	muzzle_counter +=1
+	if muzzle_counter >2:
+		muzzle_counter = 0
