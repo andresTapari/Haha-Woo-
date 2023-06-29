@@ -28,6 +28,11 @@ func set_movement_target(target_pos: Vector2) -> void:
 	navigation_agent.target_position = target_pos
 
 func _physics_process(delta) -> void:
+	if not is_instance_valid(player):
+		# Si player no existe
+		# sale
+		return
+	
 	# Orientamos el personaje:
 	$Icon.look_at(player.global_position)
 	$Icon.rotation += PI/2
@@ -52,6 +57,10 @@ func shoot() -> void:
 	b.transform = $Icon/Muzzle.global_transform
 	get_parent().add_child(b)
 	$CadenceTimer.start()
+
+func hurt() -> void:
+	
+	pass
 
 func _on_cadence_timer_timeout():
 	shoot_en = true

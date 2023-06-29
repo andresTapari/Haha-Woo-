@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
+signal update_health_value_ui(current_health)
+
 const VELOCIDAD: int = 10000
 var BULLET = preload("res://scenes/player/bullet.tscn")
 var direccion: Vector2 = Vector2.ZERO
 var muzzle_counter: int = 0
+var health = 5
 
 func _physics_process(delta: float) -> void:
 	direccion = Vector2.ZERO
@@ -43,3 +46,9 @@ func shoot() -> void:
 	muzzle_counter +=1
 	if muzzle_counter >2:
 		muzzle_counter = 0
+
+func hurt(damage: int = 1) -> void:
+	health -= damage
+	emit_signal("update_health_value_ui", health) 
+	if health <= 0:
+		queue_free()
