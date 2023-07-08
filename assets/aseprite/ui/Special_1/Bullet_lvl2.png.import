@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt3kslkhgn4o2"
-path="res://.godot/imported/Player_Icon_animation.png-6b59035a7e3e688aa4ab12920734c9a9.ctex"
+uid="uid://jc1bxa0uosnw"
+path="res://.godot/imported/Bullet_lvl2.png-6ef85079c39cc3c1a587b7ea1e04a93c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/ui/Player_Icon_animation.png"
-dest_files=["res://.godot/imported/Player_Icon_animation.png-6b59035a7e3e688aa4ab12920734c9a9.ctex"]
+source_file="res://assets/aseprite/ui/Special_1/Bullet_lvl2.png"
+dest_files=["res://.godot/imported/Bullet_lvl2.png-6ef85079c39cc3c1a587b7ea1e04a93c.ctex"]
 
 [params]
 

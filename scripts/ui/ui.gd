@@ -14,5 +14,6 @@ func _process(delta):
 func _on_player_update_health_value_ui(current_health):
 	$healthBar.update_draw(current_health)
 	$Face_icon.handle_player_hit(current_health)
+	$special_1.update_special(1,current_health)
 	await  $Face_icon/AnimatedSprite2D.animation_finished
 	$Face_icon.update_draw(current_health)

@@ -2,6 +2,10 @@ extends Control
 
 @onready var animatedSprite = %AnimatedSprite2D
 
+func _ready():
+	animatedSprite.animation = "idle"
+	animatedSprite.frame = 0
+
 func _process(delta):
 	pass
 

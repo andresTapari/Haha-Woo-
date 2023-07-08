@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://75unjbos3vci"]
+[gd_scene load_steps=9 format=3 uid="uid://75unjbos3vci"]
 
 [ext_resource type="Script" path="res://scripts/ui/ui.gd" id="1_6xwfv"]
 [ext_resource type="Texture2D" uid="uid://bjflp8uflqbsv" path="res://assets/aseprite/ui/header.png" id="1_ld1tm"]
-[ext_resource type="PackedScene" uid="uid://dsjq5esngwks2" path="res://scenes/ui/player_icon.tscn" id="3_m88l4"]
+[ext_resource type="PackedScene" uid="uid://drarws1167a5e" path="res://scenes/ui/player_icon.tscn" id="3_m88l4"]
 [ext_resource type="Texture2D" uid="uid://bc8urgtidltbq" path="res://assets/aseprite/ui/Special_place_holder.png" id="3_yop3i"]
 [ext_resource type="PackedScene" uid="uid://bmqcn7krtyvvf" path="res://scenes/ui/healthBar.tscn" id="6_5ltab"]
+[ext_resource type="PackedScene" uid="uid://bos416ay5ltmu" path="res://scenes/ui/special_1.tscn" id="7_22m4f"]
 [ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="7_dqthh"]
 
 [sub_resource type="Theme" id="Theme_cw5lj"]
@@ -30,16 +31,10 @@ stretch_mode = 2
 
 [node name="Face_icon" parent="." instance=ExtResource("3_m88l4")]
 layout_mode = 0
-
-[node name="Special_1" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 114.0
-offset_top = 2.0
-offset_right = 148.0
-offset_bottom = 36.0
-texture = ExtResource("3_yop3i")
-stretch_mode = 3
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
 
 [node name="Special_2" type="TextureRect" parent="."]
 texture_filter = 1
@@ -62,10 +57,10 @@ texture = ExtResource("3_yop3i")
 stretch_mode = 3
 
 [node name="healthBar" parent="." instance=ExtResource("6_5ltab")]
-offset_left = 37.0
-offset_top = 22.0
-offset_right = 117.0
-offset_bottom = 38.0
+offset_left = 38.0
+offset_top = 23.0
+offset_right = 118.0
+offset_bottom = 39.0
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
@@ -78,3 +73,10 @@ theme = SubResource("Theme_cw5lj")
 text = "0000000"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="special_1" parent="." instance=ExtResource("7_22m4f")]
+layout_mode = 1
+offset_left = 114.0
+offset_top = 2.0
+offset_right = 114.0
+offset_bottom = 2.0
