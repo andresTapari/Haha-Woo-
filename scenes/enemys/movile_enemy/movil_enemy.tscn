@@ -36,7 +36,7 @@ radius = 32.0
 time_horizon = 0.2
 max_speed = 1000.0
 debug_use_custom = true
-debug_path_custom_color = Color(0.0313726, 0, 1, 1)
+debug_path_custom_color = Color(1, 0.0588235, 0.0588235, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(110, 0)

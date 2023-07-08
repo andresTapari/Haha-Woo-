@@ -23,14 +23,17 @@ rotation = -1.57079
 
 [node name="movil_enemy" parent="." instance=ExtResource("2_caoql")]
 position = Vector2(39, 78)
+SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy2" parent="." instance=ExtResource("2_caoql")]
 position = Vector2(185, 78)
+SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy3" parent="." instance=ExtResource("2_caoql")]
 position = Vector2(104, 110)
+SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="Control" parent="." instance=ExtResource("3_j8qqq")]
