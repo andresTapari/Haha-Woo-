@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://75unjbos3vci"]
+[gd_scene load_steps=10 format=3 uid="uid://75unjbos3vci"]
 
 [ext_resource type="Script" path="res://scripts/ui/ui.gd" id="1_6xwfv"]
 [ext_resource type="Texture2D" uid="uid://bjflp8uflqbsv" path="res://assets/aseprite/ui/header.png" id="1_ld1tm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmqcn7krtyvvf" path="res://scenes/ui/healthBar.tscn" id="6_5ltab"]
 [ext_resource type="PackedScene" uid="uid://bos416ay5ltmu" path="res://scenes/ui/special_1.tscn" id="7_22m4f"]
 [ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="7_dqthh"]
+[ext_resource type="PackedScene" uid="uid://54unccbq5sov" path="res://scenes/ui/special_2.tscn" id="8_4wa7h"]
 
 [sub_resource type="Theme" id="Theme_cw5lj"]
 default_font = ExtResource("7_dqthh")
@@ -35,16 +36,6 @@ offset_left = 2.0
 offset_top = 1.0
 offset_right = 2.0
 offset_bottom = 1.0
-
-[node name="Special_2" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 151.0
-offset_top = 2.0
-offset_right = 185.0
-offset_bottom = 36.0
-texture = ExtResource("3_yop3i")
-stretch_mode = 3
 
 [node name="Special_3" type="TextureRect" parent="."]
 texture_filter = 1
@@ -79,4 +70,10 @@ layout_mode = 1
 offset_left = 114.0
 offset_top = 2.0
 offset_right = 114.0
+offset_bottom = 2.0
+
+[node name="special_2" parent="." instance=ExtResource("8_4wa7h")]
+offset_left = 151.0
+offset_top = 2.0
+offset_right = 151.0
 offset_bottom = 2.0

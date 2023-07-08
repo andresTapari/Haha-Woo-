@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://54unccbq5sov"]
+
+[ext_resource type="Texture2D" uid="uid://dumcmqhnivsim" path="res://assets/aseprite/ui/Special_2/Flare.png" id="1_b31om"]
+[ext_resource type="Script" path="res://scripts/ui/special_2.gd" id="1_qjabn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of54n"]
+atlas = ExtResource("1_b31om")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf6bf"]
+atlas = ExtResource("1_b31om")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdufe"]
+atlas = ExtResource("1_b31om")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26co6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of54n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf6bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdufe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="special_2" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qjabn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_26co6")
+centered = false
