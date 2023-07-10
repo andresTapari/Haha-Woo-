@@ -7,13 +7,13 @@ signal update_ui(data)
 var BULLET = preload("res://scenes/player/bullet.tscn")
 
 # Variables de exportacion
-@export var VELOCIDAD: int = 10000
-@export var muzzle_stage: int = 1
-@export var idle_time: float = 1.0
+@export var VELOCIDAD:    int = 10000   # velocidad de movimiento
+@export var muzzle_stage: int = 1		# estado actual de modo de disparo
+@export var idle_time:  float = 1.0		# duración de tiempo idle
 
 # Variables internas
 var health = 5								# Vida de player
-var direccion :  Vector2 = Vector2.ZERO		# Direccon a donde moverse
+var direccion :  Vector2  = Vector2.ZERO		# Direccon a donde moverse
 var muzzle_stage_1: Array = []				# Array de muzzle_1
 var muzzle_stage_2: Array = []				# Array de muzzle_2
 var muzzle_stage_3: Array = []				# Array de muzzle_3

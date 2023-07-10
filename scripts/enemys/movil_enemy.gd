@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
+# Señales emitidas:
+signal update_score(score)
+
 # Variables:
+@export var SCORE: int  = 50
+@export var HEATLH: int = 10
 @export var SPEED: float = 3000.0
 @export var player_path: NodePath
 @export var cadence: float = .5
+
 # Export:
 @onready var BULLET:= preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
 @onready var rayCast2D :RayCast2D = $RayCast2D
@@ -11,6 +17,8 @@ extends CharacterBody2D
 
 var shoot_en: bool = true
 var player
+var current_health: int = HEATLH
+
 
 func _ready() -> void:
 	$CadenceTimer.wait_time = cadence
@@ -58,8 +66,13 @@ func shoot() -> void:
 	get_parent().add_child(b)
 	$CadenceTimer.start()
 
-func hurt() -> void:
-	pass
+func hurt(damage: int) -> void:
+	if current_health > 0:
+		current_health -= damage
+		if current_health <= 0:
+			emit_signal("update_score",SCORE)
+			queue_free()
+
 
 func _on_cadence_timer_timeout():
 	shoot_en = true

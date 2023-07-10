@@ -9,5 +9,5 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		return
 	if body.is_in_group("enemy"):
-		pass
+		body.hurt(1)
 	queue_free()
