@@ -1,19 +1,39 @@
 extends CharacterBody2D
 
-signal update_health_value_ui(current_health)
+# Señales emitidas
+signal update_ui(data)
 
-const VELOCIDAD: int = 10000
+# Escenas:
 var BULLET = preload("res://scenes/player/bullet.tscn")
-var direccion: Vector2 = Vector2.ZERO
-var muzzle_counter: int = 0
+
+# Variables de exportacion
+@export var VELOCIDAD: int = 10000
+@export var muzzle_stage: int = 1
+@export var idle_time: float = 1.0
+
+# Variables internas
 var health = 5
+var direccion :  Vector2 = Vector2.ZERO
+var muzzle_stage_1: Array = []
+var muzzle_stage_2: Array = []
+var muzzle_stage_3: Array = []
+
+
+func _ready() -> void:
+	muzzle_stage_1 = $Muzzle_stage_1.get_children()
+	muzzle_stage_2 = $Muzzle_stage_2.get_children()
+	muzzle_stage_3 = $Muzzle_stage_3.get_children()
+	%Ide_timer.wait_time = idle_time
+	update_ui_signal()
 
 func _physics_process(delta: float) -> void:
 	direccion = Vector2.ZERO
+
 	# Mouse Direction
 	var mouse_pos = get_viewport().get_mouse_position()
 	var direccion_mouse = (mouse_pos - global_position).normalized()
 	rotation = direccion_mouse.angle() + PI/2 
+
 	# Input Teclado
 	if Input.is_action_pressed("ui_right"):
 		direccion.x += 1
@@ -34,21 +54,27 @@ func _input(event):
 		shoot()
 
 func shoot() -> void:
-	var b = BULLET.instantiate()
-	match muzzle_counter:
-		0:
-			b.transform = $Muzzle.global_transform
-		1:
-			b.transform = $Muzzle2.global_transform
-		2:
-			b.transform = $Muzzle3.global_transform
-	get_parent().add_child(b)
-	muzzle_counter +=1
-	if muzzle_counter >2:
-		muzzle_counter = 0
-
+	var current_muzzle_list: Array = muzzle_stage_1
+	if muzzle_stage == 2:
+		current_muzzle_list = muzzle_stage_2
+	if muzzle_stage == 3:
+		current_muzzle_list = muzzle_stage_2 +  muzzle_stage_3
+	
+	for muzzle in current_muzzle_list:
+		var b = BULLET.instantiate()
+		b.transform = muzzle.global_transform
+		get_parent().add_child(b)
+	
 func hurt(damage: int = 1) -> void:
 	health -= damage
-	emit_signal("update_health_value_ui", health) 
+	update_ui_signal()
+	
 	if health <= 0:
 		queue_free()
+
+func update_ui_signal() -> void:
+	var data = {
+		"health": health,
+		"muzzle_stage": muzzle_stage
+	}
+	emit_signal("update_ui",data)

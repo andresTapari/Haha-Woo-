@@ -8,4 +8,5 @@ func _ready():
 func update_draw(value: int) -> void:
 	if value > 5 or value < 0:
 		return
-	animatedSprite.frame = value
+	if animatedSprite:
+		animatedSprite.frame = value

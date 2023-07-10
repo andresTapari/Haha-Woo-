@@ -6,9 +6,6 @@ func _ready():
 	animatedSprite.animation = "idle"
 	animatedSprite.frame = 0
 
-func _process(delta):
-	pass
-
 func handle_player_hit(currentLife: int) -> void:
 	if currentLife > 3:
 		animatedSprite.play("green_damage")

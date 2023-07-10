@@ -59,7 +59,6 @@ func shoot() -> void:
 	$CadenceTimer.start()
 
 func hurt() -> void:
-	
 	pass
 
 func _on_cadence_timer_timeout():

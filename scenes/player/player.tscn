@@ -1,30 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://od6yx3hynn6k"]
+[gd_scene load_steps=7 format=3 uid="uid://od6yx3hynn6k"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_b5heu"]
 [ext_resource type="Texture2D" uid="uid://bsc5f1oopduo7" path="res://assets/aseprite/player/player_ship.png" id="2_3kx8f"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw5hv"]
+atlas = ExtResource("2_3kx8f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p006o"]
+atlas = ExtResource("2_3kx8f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4p4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw5hv")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw5hv")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw5hv")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw5hv")
+}],
+"loop": true,
+"name": &"idle_state",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p006o")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_rugm1"]
-radius = 6.0
+radius = 6.08276
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
 script = ExtResource("1_b5heu")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c4p4g")
+animation = &"normal"
+frame_progress = 0.921089
+
 [node name="PlayerShip" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_3kx8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.06897e-06, -9.5806e-07)
 shape = SubResource("CircleShape2D_rugm1")
 
-[node name="Muzzle" type="Marker2D" parent="."]
+[node name="Muzzle_stage_1" type="Node2D" parent="."]
 position = Vector2(0, -8)
 rotation = -1.57079
 
-[node name="Muzzle2" type="Marker2D" parent="."]
-position = Vector2(5, -2)
+[node name="Muzzle6" type="Marker2D" parent="Muzzle_stage_1"]
+position = Vector2(-3.00005, 2.00008)
+
+[node name="Muzzle7" type="Marker2D" parent="Muzzle_stage_1"]
+position = Vector2(-3.00008, -1.99992)
+
+[node name="Muzzle_stage_2" type="Node2D" parent="."]
+
+[node name="Muzzle" type="Marker2D" parent="Muzzle_stage_2"]
+position = Vector2(0, -7)
 rotation = -1.57079
 
-[node name="Muzzle3" type="Marker2D" parent="."]
-position = Vector2(-5, -2)
-rotation = -1.57079
+[node name="Muzzle2" type="Marker2D" parent="Muzzle_stage_2"]
+position = Vector2(4, -3)
+rotation = -1.48284
+
+[node name="Muzzle4" type="Marker2D" parent="Muzzle_stage_2"]
+position = Vector2(-4, -3)
+rotation = -1.65806
+
+[node name="Muzzle_stage_3" type="Node2D" parent="."]
+
+[node name="Muzzle3" type="Marker2D" parent="Muzzle_stage_3"]
+position = Vector2(6, 0)
+rotation = -1.309
+
+[node name="Muzzle5" type="Marker2D" parent="Muzzle_stage_3"]
+position = Vector2(-6, 0)
+rotation = -1.84297
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="Ide_timer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
