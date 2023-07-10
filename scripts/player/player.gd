@@ -12,11 +12,12 @@ var BULLET = preload("res://scenes/player/bullet.tscn")
 @export var idle_time: float = 1.0
 
 # Variables internas
-var health = 5
-var direccion :  Vector2 = Vector2.ZERO
-var muzzle_stage_1: Array = []
-var muzzle_stage_2: Array = []
-var muzzle_stage_3: Array = []
+var health = 5								# Vida de player
+var direccion :  Vector2 = Vector2.ZERO		# Direccon a donde moverse
+var muzzle_stage_1: Array = []				# Array de muzzle_1
+var muzzle_stage_2: Array = []				# Array de muzzle_2
+var muzzle_stage_3: Array = []				# Array de muzzle_3
+var idle_estate_en: bool = false			# Bandera de estado idle
 
 
 func _ready() -> void:
@@ -45,12 +46,13 @@ func _physics_process(delta: float) -> void:
 		direccion.y -= 1
 	direccion = direccion.normalized()
 
+	# Movemos a player
 	var movimiento = direccion * VELOCIDAD * delta
 	velocity = movimiento
 	move_and_slide()
 
 func _input(event):
-	if event.is_action_pressed("shoot"):
+	if event.is_action_pressed("shoot") and !idle_estate_en:
 		shoot()
 
 func shoot() -> void:
@@ -66,11 +68,14 @@ func shoot() -> void:
 		get_parent().add_child(b)
 	
 func hurt(damage: int = 1) -> void:
-	health -= damage
-	update_ui_signal()
-	
-	if health <= 0:
-		queue_free()
+	if not idle_estate_en:
+		health -= damage
+		update_ui_signal()
+		idle_estate_en = true
+		%Ide_timer.start()
+		$AnimatedSprite2D.play("idle_state")
+		if health <= 0:
+			queue_free()
 
 func update_ui_signal() -> void:
 	var data = {
@@ -78,3 +83,7 @@ func update_ui_signal() -> void:
 		"muzzle_stage": muzzle_stage
 	}
 	emit_signal("update_ui",data)
+
+func _on_ide_timer_timeout():
+	$AnimatedSprite2D.animation = "normal"
+	idle_estate_en = false

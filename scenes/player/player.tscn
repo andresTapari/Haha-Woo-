@@ -61,7 +61,7 @@ script = ExtResource("1_b5heu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c4p4g")
 animation = &"normal"
-frame_progress = 0.921089
+frame_progress = 0.299958
 
 [node name="PlayerShip" type="Sprite2D" parent="."]
 visible = false
@@ -108,3 +108,6 @@ rotation = -1.84297
 
 [node name="Ide_timer" type="Timer" parent="Timers"]
 unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="Timers/Ide_timer" to="." method="_on_ide_timer_timeout"]
