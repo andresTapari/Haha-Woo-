@@ -61,7 +61,7 @@ script = ExtResource("1_b5heu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c4p4g")
 animation = &"normal"
-frame_progress = 0.299958
+frame_progress = 0.9154
 
 [node name="PlayerShip" type="Sprite2D" parent="."]
 visible = false
