@@ -57,6 +57,7 @@ radius = 6.08276
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
 script = ExtResource("1_b5heu")
+cadence_time = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c4p4g")
@@ -110,4 +111,10 @@ rotation = -1.84297
 unique_name_in_owner = true
 one_shot = true
 
+[node name="Cadence_Timer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="Timers/Ide_timer" to="." method="_on_ide_timer_timeout"]
+[connection signal="timeout" from="Timers/Cadence_Timer" to="." method="_on_cadence_timer_timeout"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://deyn5ar642d1d"]
+
+[ext_resource type="Texture2D" uid="uid://bfufcj8gtgl8r" path="res://assets/aseprite/enemys/enemyTurrentPlaceHolder.png" id="1_xg52m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5086"]
+size = Vector2(16, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_xg52m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r5086")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

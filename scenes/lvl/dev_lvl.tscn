@@ -34,7 +34,12 @@ SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy3" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(104, 110)
+position = Vector2(40, 222)
+SPEED = 2000.0
+player_path = NodePath("../Player")
+
+[node name="movil_enemy4" parent="." instance=ExtResource("2_caoql")]
+position = Vector2(184, 222)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
