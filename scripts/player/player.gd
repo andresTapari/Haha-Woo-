@@ -8,18 +8,18 @@ var BULLET = preload("res://scenes/player/bullet.tscn")
 
 # Variables de exportacion
 @export var VELOCIDAD:      int = 10000   	# velocidad de movimiento
-@export var muzzle_stage:   int = 1			# estado actual de modo de disparo
+@export var muzzle_stage:   int = 2			# estado actual de modo de disparo
 @export var idle_time:    float = 1.0		# duración de tiempo idle
 @export var cadence_time: float = .5		# cadencia de disparo
 
 # Variables internas
 var health = 5								# Vida de player
-var direccion :  Vector2  = Vector2.ZERO		# Direccon a donde moverse
+var direccion :  Vector2  = Vector2.ZERO	# Direccon a donde moverse
 var muzzle_stage_1: Array = []				# Array de muzzle_1
 var muzzle_stage_2: Array = []				# Array de muzzle_2
 var muzzle_stage_3: Array = []				# Array de muzzle_3
-var idle_estate_en: bool = false			# Bandera de estado idle
-var shoot_en:       bool = true				# Bandera de disparo habilitado
+var idle_estate_en: bool  = false			# Bandera de estado idle
+var shoot_en:       bool  = true			# Bandera de disparo habilitado
 
 func _ready() -> void:
 	muzzle_stage_1 = $Muzzle_stage_1.get_children()
@@ -64,6 +64,8 @@ func shoot() -> void:
 		current_muzzle_list = muzzle_stage_2
 	if muzzle_stage == 3:
 		current_muzzle_list = muzzle_stage_2 +  muzzle_stage_3
+	
+	
 	
 	for muzzle in current_muzzle_list:
 		var b = BULLET.instantiate()

@@ -11,6 +11,8 @@ motion_mode = 1
 script = ExtResource("1_svwdb")
 cadence = 0.25
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
 [node name="Icon" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_vam4h")
