@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsyhh2bwlfxo7"]
+
+[ext_resource type="Texture2D" uid="uid://cq0n58wc1e38t" path="res://assets/aseprite/tiles/door_place_holder.png" id="1_6gpbd"]
+[ext_resource type="Script" path="res://scripts/lvl/doors.gd" id="1_sdbqi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7q1a"]
+size = Vector2(30, 10)
+
+[node name="door" type="Area2D" groups=["door"]]
+script = ExtResource("1_sdbqi")
+
+[node name="DoorPlaceHolder3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 0)
+texture = ExtResource("1_6gpbd")
+
+[node name="DoorPlaceHolder2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, 0)
+texture = ExtResource("1_6gpbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m7q1a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

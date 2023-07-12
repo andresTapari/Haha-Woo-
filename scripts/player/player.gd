@@ -93,6 +93,5 @@ func _on_ide_timer_timeout():
 	$AnimatedSprite2D.animation = "normal"
 	idle_estate_en = false
 
-
 func _on_cadence_timer_timeout():
 	shoot_en = true
