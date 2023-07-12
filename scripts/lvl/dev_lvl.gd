@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 func _ready():
 	connect_enemys_to_score_ui()
 	connect_lvls_to_lvls_transitions()
