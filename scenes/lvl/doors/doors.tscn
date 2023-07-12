@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://scripts/lvl/doors.gd" id="1_sdbqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7q1a"]
-size = Vector2(30, 10)
+size = Vector2(30, 3)
 
-[node name="door" type="Area2D" groups=["door"]]
+[node name="door" type="Node2D" groups=["door"]]
 script = ExtResource("1_sdbqi")
 
 [node name="DoorPlaceHolder3" type="Sprite2D" parent="."]
@@ -19,7 +19,18 @@ texture_filter = 1
 position = Vector2(-8, 0)
 texture = ExtResource("1_6gpbd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Second_area" type="Area2D" parent="."]
+position = Vector2(0, 3.5)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Second_area"]
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_m7q1a")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="First_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="First_area"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_m7q1a")
+
+[connection signal="body_entered" from="Second_area" to="." method="_on_second_area_body_entered"]
+[connection signal="body_entered" from="First_area" to="." method="_on_first_area_body_entered"]
