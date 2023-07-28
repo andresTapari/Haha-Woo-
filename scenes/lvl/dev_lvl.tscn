@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwk8gql0c6kxu"]
+[gd_scene load_steps=13 format=3 uid="uid://cwk8gql0c6kxu"]
 
 [ext_resource type="Script" path="res://scripts/lvl/dev_lvl.gd" id="1_xnij3"]
 [ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="2_caoql"]
@@ -8,50 +8,58 @@
 [ext_resource type="PackedScene" uid="uid://cflg71otml7fi" path="res://scenes/lvl/lvls/lvl_2.tscn" id="3_mymfy"]
 [ext_resource type="PackedScene" uid="uid://dwmi586p2aqfl" path="res://scenes/lvl/lvls/lvl_3.tscn" id="4_3udhd"]
 [ext_resource type="PackedScene" uid="uid://deyn5ar642d1d" path="res://scenes/enemys/static_enemy/static_enemy.tscn" id="6_337nv"]
+[ext_resource type="PackedScene" uid="uid://wbj6chdwj578" path="res://scenes/powerUp/gun.tscn" id="6_gtvoi"]
 [ext_resource type="PackedScene" uid="uid://vh7ir7t5rsjf" path="res://scenes/lvl/camera/camera_2d.tscn" id="8_iun8b"]
 [ext_resource type="PackedScene" uid="uid://d3lxlrcqqa306" path="res://scenes/enemys/movile_enemy/enemy_boss.tscn" id="10_82yth"]
+[ext_resource type="PackedScene" uid="uid://h1q6px0x85s4" path="res://scenes/lvl/lvls/lvl_4.tscn" id="11_f5gjg"]
 
 [node name="dev_lvl" type="Node2D"]
-position = Vector2(0, 2)
 script = ExtResource("1_xnij3")
 
 [node name="uiHeadder" parent="." instance=ExtResource("3_j8qqq")]
 
 [node name="TileMap2" parent="." instance=ExtResource("3_mymfy")]
-position = Vector2(0, -224)
+position = Vector2(224, 0)
 
 [node name="lvl_2" parent="." instance=ExtResource("4_3udhd")]
-position = Vector2(224, -224)
+position = Vector2(448, 0)
 
 [node name="TileMap" parent="." instance=ExtResource("3_d84ba")]
 
-[node name="Player" parent="." instance=ExtResource("3_gamo2")]
-unique_name_in_owner = true
-position = Vector2(111, 144)
-rotation = -1.57079
+[node name="lvl_1" parent="." instance=ExtResource("11_f5gjg")]
+position = Vector2(672, 0)
+
+[node name="Camera2D" parent="." instance=ExtResource("8_iun8b")]
+position = Vector2(112, 93)
+lvl_path = NodePath("../TileMap")
 
 [node name="movil_enemy" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(40, 40)
+position = Vector2(636, 73)
+SPEED = 2000.0
+player_path = NodePath("../Player")
+
+[node name="movil_enemy5" parent="." instance=ExtResource("2_caoql")]
+position = Vector2(636, 159)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy2" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(185, 39)
+position = Vector2(506, -207)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy3" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(185, 185)
+position = Vector2(506, -61)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy4" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(39, 184)
+position = Vector2(360, -62)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="static_enemy" parent="." instance=ExtResource("6_337nv")]
-position = Vector2(167, -57)
+position = Vector2(336, 112)
 player_path = NodePath("../Player")
 
 [node name="static_enemy2" parent="." instance=ExtResource("6_337nv")]
@@ -66,13 +74,17 @@ player_path = NodePath("../Player")
 position = Vector2(168, -168)
 player_path = NodePath("../Player")
 
-[node name="Camera2D" parent="." instance=ExtResource("8_iun8b")]
-position = Vector2(112, 93)
-lvl_path = NodePath("../TileMap")
-
 [node name="enemy_boss" parent="." instance=ExtResource("10_82yth")]
 position = Vector2(314.91, -108.245)
 player_path = NodePath("../Player")
+
+[node name="powerUp" parent="." instance=ExtResource("6_gtvoi")]
+position = Vector2(787, 167)
+
+[node name="Player" parent="." instance=ExtResource("3_gamo2")]
+unique_name_in_owner = true
+position = Vector2(111, 112)
+rotation = -1.57079
 
 [connection signal="dammage" from="Player" to="Camera2D" method="_on_player_dammage"]
 [connection signal="update_ui" from="Player" to="uiHeadder" method="_on_player_update_ui"]

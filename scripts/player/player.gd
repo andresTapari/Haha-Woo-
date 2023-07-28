@@ -37,9 +37,9 @@ func _physics_process(delta: float) -> void:
 	direccion = Vector2.ZERO
 
 	# Mouse Direction
-	var mouse_pos = get_viewport().get_mouse_position()
+	var mouse_pos = get_global_mouse_position()
 	var direccion_mouse = (mouse_pos - global_position).normalized()
-	rotation = direccion_mouse.angle() + PI/2 
+	rotation = direccion_mouse.angle() + PI/2
 
 	# Input Teclado
 	if Input.is_action_pressed("ui_right"):
@@ -94,8 +94,7 @@ func shoot() -> void:
 			get_parent().add_child(bullet_c)
 			get_parent().add_child(bullet_d)
 			get_parent().add_child(bullet_e)
-	
-#	for muzzle in current_muzzle_list:
+
 
 func hurt(damage: int = 1) -> void:
 	if not idle_estate_en:

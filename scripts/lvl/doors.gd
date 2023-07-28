@@ -10,6 +10,8 @@ var direction: dir
 var flag_A: bool = false
 var flag_B: bool = false
 
+var is_open: bool = false				# bandera de la perta
+
 func _on_body_entered(body):
 	if(body.is_in_group("player")):
 		emit_signal("lvl_transition",direction)
@@ -36,6 +38,20 @@ func check_direction():
 	if flag_B and not flag_A:
 		emit_signal("lvl_transition",dir.player_in)
 
+# Esta funcion reestablece el estado de pase de player 
+# por la puerta
 func reset():
 	flag_A = false
 	flag_B = false
+
+# Esta funcion abre la puerta
+func open():
+	if not is_open:
+		is_open = true
+		%AnimationPlayer.play("door_open")
+
+# Esta funcion cierra la puerta
+func close():
+	if is_open:
+		is_open = false
+		%AnimationPlayer.play("door_close")

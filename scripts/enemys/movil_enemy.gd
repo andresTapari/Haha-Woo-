@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # Señales emitidas:
 signal update_score(score)
+signal screen_update(flag)			#Señal cuando enemy entra en pantalla
 
 # Variables:
 @export var SCORE: int  = 50
@@ -71,6 +72,7 @@ func hurt(damage: int) -> void:
 		current_health -= damage
 		if current_health <= 0:
 			emit_signal("update_score",SCORE)
+			emit_signal("screen_update", self ,false)
 			queue_free()
 
 
@@ -80,3 +82,11 @@ func _on_cadence_timer_timeout():
 func _on_target_timer_timeout():
 	if is_instance_valid(player):
 		set_movement_target(player.position)
+
+
+func _on_visible_on_screen_enabler_2d_screen_entered():
+	emit_signal("screen_update", self ,true)
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	emit_signal("screen_update", self ,false)

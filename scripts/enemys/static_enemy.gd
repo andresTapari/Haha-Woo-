@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 # Señales emitidas:
-signal update_score(score)
+signal update_score(score)			#Señal cuando enemy muere y actualiza el puntaje
+signal screen_update(node,flag)			#Señal cuando enemy entra en pantalla
 
-	# Escenas
+# Escenas
 @onready var BULLET:= preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
 
 # Nodos
@@ -13,6 +14,8 @@ signal update_score(score)
 # Parametros:
 @export var player_path: NodePath
 @export var cadence: float = .5
+@export var health: int = 20
+@export var SCORE: int = 10
 
 # Variables:: Character
 var player: CharacterBody2D
@@ -29,11 +32,7 @@ func _process(delta):
 	var target_pos: Vector2 = player.position - self.position
 	$Muzzle.look_at(player.global_position)
 	if shoot_en: shoot()
-#	rayCast2D.target_position = target_pos
-#	rayCast2D.force_raycast_update()
-#	var collider = rayCast2D.get_collider()
-#	if collider.is_in_group("player") and shoot_en:
-#		shoot()
+
 
 func shoot():
 	%Cadence_timer.start()
@@ -45,8 +44,21 @@ func shoot():
 		get_parent().add_child(b)
 
 func hurt(damage: int) -> void:
-	pass
+	health -= damage
+	if health <= 0:
+		emit_signal("update_score",SCORE)
+		emit_signal("screen_update", self, false)
+		queue_free()
+
 
 func _on_cadence_timer_timeout():
 	shoot_en = true
 
+
+# Funcion que se ejecuta cuando enemy entra en pantalla
+func _on_visible_on_screen_enabler_2d_screen_entered():
+	emit_signal("screen_update", self ,true)
+
+# Funcion que se ejecuta cuando enemy sale de la pantalla
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	emit_signal("screen_update", self, false)

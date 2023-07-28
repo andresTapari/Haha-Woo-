@@ -1,10 +1,144 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsyhh2bwlfxo7"]
+[gd_scene load_steps=12 format=3 uid="uid://dsyhh2bwlfxo7"]
 
 [ext_resource type="Texture2D" uid="uid://cq0n58wc1e38t" path="res://assets/aseprite/tiles/door_place_holder.png" id="1_6gpbd"]
 [ext_resource type="Script" path="res://scripts/lvl/doors.gd" id="1_sdbqi"]
+[ext_resource type="Texture2D" uid="uid://bcbguf7mxbps2" path="res://assets/aseprite/tiles/door_block.png" id="3_37ka5"]
+[ext_resource type="Texture2D" uid="uid://xu8y732ag8r4" path="res://assets/aseprite/tiles/door_tile.png" id="3_t3nrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7q1a"]
 size = Vector2(30, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r810v"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_cbxrp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D3/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lh3a6"]
+resource_name = "door_close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D3/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(24, 0), Vector2(8, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-24, 0), Vector2(-8, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j00op"]
+resource_name = "door_open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-8, 0), Vector2(-24, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 0), Vector2(24, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D3/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1rho"]
+_data = {
+"RESET": SubResource("Animation_cbxrp"),
+"door_close": SubResource("Animation_lh3a6"),
+"door_open": SubResource("Animation_j00op")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq6h6"]
+size = Vector2(32, 16)
 
 [node name="door" type="Node2D" groups=["door"]]
 script = ExtResource("1_sdbqi")
@@ -19,6 +153,16 @@ texture_filter = 1
 position = Vector2(-8, 0)
 texture = ExtResource("1_6gpbd")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 0)
+texture = ExtResource("3_37ka5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, 0)
+texture = ExtResource("3_37ka5")
+
 [node name="Second_area" type="Area2D" parent="."]
 position = Vector2(0, 3.5)
 
@@ -31,6 +175,39 @@ shape = SubResource("RectangleShape2D_m7q1a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="First_area"]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_m7q1a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-24, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_r810v")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+texture = ExtResource("3_t3nrn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(24, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_r810v")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture_filter = 1
+texture = ExtResource("3_t3nrn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_q1rho")
+}
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_aq6h6")
 
 [connection signal="body_entered" from="Second_area" to="." method="_on_second_area_body_entered"]
 [connection signal="body_entered" from="First_area" to="." method="_on_first_area_body_entered"]
