@@ -60,6 +60,7 @@ texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dcwx2")
 theme_override_font_sizes/font_size = 16
+disabled = true
 text = "SETTINGS"
 flat = true
 
