@@ -5,7 +5,6 @@ signal update_ui(data)
 signal dammage
 
 # Escenas:
-var BULLET         = preload("res://scenes/player/bullet.tscn")
 var BULLET_LVL_1   = preload("res://scenes/player/bullet_fase_1.tscn")
 var BULLET_LVL_2_C = preload("res://scenes/player/bullet_fase_2_center.tscn")
 var BULLET_LVL_2_E = preload("res://scenes/player/bullet_fase_2_edge.tscn")

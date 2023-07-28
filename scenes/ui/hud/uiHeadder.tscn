@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://6grauelmth2s"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud/uiHeadder.gd" id="1_1rrif"]
+[ext_resource type="Texture2D" uid="uid://bjflp8uflqbsv" path="res://assets/aseprite/ui/Header/header.png" id="2_118fa"]
+[ext_resource type="PackedScene" uid="uid://drarws1167a5e" path="res://scenes/ui/hud/player_icon.tscn" id="3_b7o5g"]
+[ext_resource type="Texture2D" uid="uid://bc8urgtidltbq" path="res://assets/aseprite/ui/Special_place_holder.png" id="4_y0lbd"]
+[ext_resource type="PackedScene" uid="uid://bmqcn7krtyvvf" path="res://scenes/ui/hud/healthBar.tscn" id="5_ad7ni"]
+[ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="6_it6d5"]
+[ext_resource type="Script" path="res://scenes/ui/hud/ScoreLabel.gd" id="7_b8086"]
+[ext_resource type="PackedScene" uid="uid://bos416ay5ltmu" path="res://scenes/ui/hud/special_1.tscn" id="8_d5tjl"]
+[ext_resource type="PackedScene" uid="uid://54unccbq5sov" path="res://scenes/ui/hud/special_2.tscn" id="9_206t3"]
+
+[sub_resource type="Theme" id="Theme_cw5lj"]
+default_font = ExtResource("6_it6d5")
+default_font_size = 10
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_1rrif")
+
+[node name="Fondo" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 224.0
+offset_bottom = 38.0
+texture = ExtResource("2_118fa")
+stretch_mode = 2
+
+[node name="Face_icon" parent="." instance=ExtResource("3_b7o5g")]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
+
+[node name="Special_3" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 188.0
+offset_top = 2.0
+offset_right = 222.0
+offset_bottom = 36.0
+texture = ExtResource("4_y0lbd")
+stretch_mode = 3
+
+[node name="healthBar" parent="." instance=ExtResource("5_ad7ni")]
+offset_left = 38.0
+offset_top = 23.0
+offset_right = 118.0
+offset_bottom = 39.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 42.0
+offset_top = 5.0
+offset_right = 110.0
+offset_bottom = 21.0
+theme = SubResource("Theme_cw5lj")
+text = "0000000"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("7_b8086")
+
+[node name="special_1" parent="." instance=ExtResource("8_d5tjl")]
+offset_left = 114.0
+offset_top = 2.0
+offset_right = 114.0
+offset_bottom = 2.0
+
+[node name="special_2" parent="." instance=ExtResource("9_206t3")]
+offset_left = 151.0
+offset_top = 2.0
+offset_right = 151.0
+offset_bottom = 2.0

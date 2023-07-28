@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bos416ay5ltmu"]
 
 [ext_resource type="Texture2D" uid="uid://c4u5n5hihxymj" path="res://assets/aseprite/ui/Special_1/Bullet_lvl1.png" id="1_hb7qq"]
-[ext_resource type="Script" path="res://scripts/ui/special_1.gd" id="1_soqvn"]
+[ext_resource type="Script" path="res://scenes/ui/hud/special_1.gd" id="1_soqvn"]
 [ext_resource type="Texture2D" uid="uid://jc1bxa0uosnw" path="res://assets/aseprite/ui/Special_1/Bullet_lvl2.png" id="2_sokg1"]
 [ext_resource type="Texture2D" uid="uid://crerv3rgxi1jl" path="res://assets/aseprite/ui/Special_1/Bullet_lvl3.png" id="3_cvxse"]
 

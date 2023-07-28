@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7jxpbx67kjb" path="res://assets/aseprite/ui/MainMenu/capibara_icon.png" id="4_wg6ce"]
 
 [node name="Control" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,6 +72,7 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("3_6e8uc")
