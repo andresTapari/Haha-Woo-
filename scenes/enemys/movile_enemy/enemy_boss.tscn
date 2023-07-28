@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3lxlrcqqa306"]
+
+[ext_resource type="Script" path="res://scripts/enemys/movil_enemy.gd" id="1_5cv0y"]
+[ext_resource type="Texture2D" uid="uid://cdsiln4aeo5nt" path="res://assets/aseprite/enemys/enemy_boss.png" id="2_w02fg"]
+[ext_resource type="Texture2D" uid="uid://b2fxkehtxj353" path="res://assets/aseprite/enemys/enemy_movil.png" id="3_8abru"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jd0x"]
+atlas = ExtResource("2_w02fg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h0br"]
+atlas = ExtResource("2_w02fg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cfow"]
+atlas = ExtResource("2_w02fg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b34lu"]
+atlas = ExtResource("2_w02fg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_300qs"]
+atlas = ExtResource("2_w02fg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_focpi"]
+atlas = ExtResource("2_w02fg")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qwuls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jd0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h0br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cfow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b34lu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_300qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_focpi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6olpv"]
+radius = 7.0
+
+[node name="enemy_boss" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
+script = ExtResource("1_5cv0y")
+cadence = 0.75
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qwuls")
+autoplay = "default"
+frame_progress = 0.438897
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.010664
+shape = SubResource("CircleShape2D_6olpv")
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_8abru")
+
+[node name="Muzzle" type="Marker2D" parent="Icon"]
+texture_filter = 1
+position = Vector2(0, -9)
+rotation = -1.5708
+
+[node name="CadenceTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TargetTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 32.0
+time_horizon_agents = 0.2
+max_speed = 1000.0
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0.0588235, 0.0588235, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(110, 0)
+
+[connection signal="timeout" from="CadenceTimer" to="." method="_on_cadence_timer_timeout" flags=18]
+[connection signal="timeout" from="TargetTimer" to="." method="_on_target_timer_timeout" flags=18]

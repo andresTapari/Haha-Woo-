@@ -7,7 +7,7 @@ class_name ENEMY_CLASS
 @export var Muzzle_node_path: NodePath
 
 var rayCast: RayCast2D
-var muzzle: Marker2D
+var muzzle:  Marker2D
 
 func _ready():
 	if not RayCast_node_path.is_empty():

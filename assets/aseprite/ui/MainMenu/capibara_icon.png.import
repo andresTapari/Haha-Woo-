@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0uc1dga6mcch"
-path="res://.godot/imported/enemy_bullet.png-c03121a87df30e141ce05a2551f0f54e.ctex"
+uid="uid://c7jxpbx67kjb"
+path="res://.godot/imported/capibara_icon.png-12f64f53f9b764890b08758c634d70a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/enemys/enemy_bullet.png"
-dest_files=["res://.godot/imported/enemy_bullet.png-c03121a87df30e141ce05a2551f0f54e.ctex"]
+source_file="res://assets/aseprite/ui/MainMenu/capibara_icon.png"
+dest_files=["res://.godot/imported/capibara_icon.png-12f64f53f9b764890b08758c634d70a0.ctex"]
 
 [params]
 

@@ -20,7 +20,7 @@ func handle_enemy_score_update_signal(new_score):
 	$uiHeadder._update_score(new_score)
 
 func handle_change_lvl_signal(direction,camera_position):
-	print("Lvl transition:",direction,camera_position)
+#	print("Lvl transition:",direction,camera_position)
 	if direction == 1:
 		$Camera2D.travel_to_next_lvl(camera_position)
 		reset_doors()

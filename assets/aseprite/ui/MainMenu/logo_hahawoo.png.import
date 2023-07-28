@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0uc1dga6mcch"
-path="res://.godot/imported/enemy_bullet.png-c03121a87df30e141ce05a2551f0f54e.ctex"
+uid="uid://co6ckv21g72dl"
+path="res://.godot/imported/logo_hahawoo.png-f0711edd4e7d2b9b6b06a034b0777b04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/enemys/enemy_bullet.png"
-dest_files=["res://.godot/imported/enemy_bullet.png-c03121a87df30e141ce05a2551f0f54e.ctex"]
+source_file="res://assets/aseprite/ui/MainMenu/logo_hahawoo.png"
+dest_files=["res://.godot/imported/logo_hahawoo.png-f0711edd4e7d2b9b6b06a034b0777b04.ctex"]
 
 [params]
 

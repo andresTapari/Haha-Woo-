@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwk8gql0c6kxu"]
+[gd_scene load_steps=11 format=3 uid="uid://cwk8gql0c6kxu"]
 
 [ext_resource type="Script" path="res://scripts/lvl/dev_lvl.gd" id="1_xnij3"]
 [ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="2_caoql"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwmi586p2aqfl" path="res://scenes/lvl/lvls/lvl_3.tscn" id="4_3udhd"]
 [ext_resource type="PackedScene" uid="uid://deyn5ar642d1d" path="res://scenes/enemys/static_enemy/static_enemy.tscn" id="6_337nv"]
 [ext_resource type="PackedScene" uid="uid://vh7ir7t5rsjf" path="res://scenes/lvl/camera/camera_2d.tscn" id="8_iun8b"]
+[ext_resource type="PackedScene" uid="uid://d3lxlrcqqa306" path="res://scenes/enemys/movile_enemy/enemy_boss.tscn" id="10_82yth"]
 
 [node name="dev_lvl" type="Node2D"]
 position = Vector2(0, 2)
@@ -66,7 +67,12 @@ position = Vector2(168, -168)
 player_path = NodePath("../Player")
 
 [node name="Camera2D" parent="." instance=ExtResource("8_iun8b")]
-position = Vector2(186, 126)
+position = Vector2(112, 93)
 lvl_path = NodePath("../TileMap")
 
+[node name="enemy_boss" parent="." instance=ExtResource("10_82yth")]
+position = Vector2(314.91, -108.245)
+player_path = NodePath("../Player")
+
+[connection signal="dammage" from="Player" to="Camera2D" method="_on_player_dammage"]
 [connection signal="update_ui" from="Player" to="uiHeadder" method="_on_player_update_ui"]

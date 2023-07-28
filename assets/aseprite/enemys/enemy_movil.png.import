@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfufcj8gtgl8r"
-path="res://.godot/imported/enemyTurrentPlaceHolder.png-78e92a2e9d6c11443ff9aedcf9ea2e47.ctex"
+uid="uid://b2fxkehtxj353"
+path="res://.godot/imported/enemy_movil.png-da8272e81ce21bc56a9a66b9566250f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/enemys/enemyTurrentPlaceHolder.png"
-dest_files=["res://.godot/imported/enemyTurrentPlaceHolder.png-78e92a2e9d6c11443ff9aedcf9ea2e47.ctex"]
+source_file="res://assets/aseprite/enemys/enemy_movil.png"
+dest_files=["res://.godot/imported/enemy_movil.png-da8272e81ce21bc56a9a66b9566250f4.ctex"]
 
 [params]
 

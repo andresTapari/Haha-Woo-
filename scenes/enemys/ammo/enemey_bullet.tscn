@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbr110itvxv1f"]
 
-[ext_resource type="Texture2D" uid="uid://betcuiujlpq0k" path="res://assets/aseprite/enemys/enemy_bullet.png" id="1_a015i"]
+[ext_resource type="Texture2D" uid="uid://c0uc1dga6mcch" path="res://assets/aseprite/enemys/enemy_bullet.png" id="1_a015i"]
 [ext_resource type="Script" path="res://scripts/enemys/enemey_bullet.gd" id="1_rb3a1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g5bj3"]

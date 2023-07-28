@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0uc1dga6mcch"
-path="res://.godot/imported/enemy_bullet.png-c03121a87df30e141ce05a2551f0f54e.ctex"
+uid="uid://r2ecu7c2nykn"
+path="res://.godot/imported/lvl_2and3_bullet_centerfire.png-fd6edb8fe9a6c2156b3fae87eac0d6fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/enemys/enemy_bullet.png"
-dest_files=["res://.godot/imported/enemy_bullet.png-c03121a87df30e141ce05a2551f0f54e.ctex"]
+source_file="res://assets/aseprite/player/bullet/lvl_2and3_bullet_centerfire.png"
+dest_files=["res://.godot/imported/lvl_2and3_bullet_centerfire.png-fd6edb8fe9a6c2156b3fae87eac0d6fd.ctex"]
 
 [params]
 

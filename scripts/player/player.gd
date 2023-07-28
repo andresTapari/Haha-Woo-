@@ -2,9 +2,13 @@ extends CharacterBody2D
 
 # Señales emitidas
 signal update_ui(data)
+signal dammage
 
 # Escenas:
-var BULLET = preload("res://scenes/player/bullet.tscn")
+var BULLET         = preload("res://scenes/player/bullet.tscn")
+var BULLET_LVL_1   = preload("res://scenes/player/bullet_fase_1.tscn")
+var BULLET_LVL_2_C = preload("res://scenes/player/bullet_fase_2_center.tscn")
+var BULLET_LVL_2_E = preload("res://scenes/player/bullet_fase_2_edge.tscn")
 
 # Variables de exportacion
 @export var VELOCIDAD:      int = 10000   	# velocidad de movimiento
@@ -22,7 +26,7 @@ var idle_estate_en: bool  = false			# Bandera de estado idle
 var shoot_en:       bool  = true			# Bandera de disparo habilitado
 
 func _ready() -> void:
-	muzzle_stage_1 = $Muzzle_stage_1.get_children()
+#	muzzle_stage_1 = $Muzzle_stage_1.get_children()
 	muzzle_stage_2 = $Muzzle_stage_2.get_children()
 	muzzle_stage_3 = $Muzzle_stage_3.get_children()
 	%Ide_timer.wait_time     = idle_time
@@ -59,19 +63,40 @@ func _physics_process(delta: float) -> void:
 func shoot() -> void:
 	shoot_en = false
 	%Cadence_Timer.start()
-	var current_muzzle_list: Array = muzzle_stage_1
-	if muzzle_stage == 2:
-		current_muzzle_list = muzzle_stage_2
-	if muzzle_stage == 3:
-		current_muzzle_list = muzzle_stage_2 +  muzzle_stage_3
+	match muzzle_stage:
+		1:
+			var b = BULLET_LVL_1.instantiate()
+			b.transform = %Muzzle.global_transform
+			get_parent().add_child(b)
+		2:
+			var bullet_a = BULLET_LVL_2_C.instantiate()
+			var bullet_b = BULLET_LVL_2_E.instantiate()
+			var bullet_c = BULLET_LVL_2_E.instantiate()
+			bullet_a.transform = %Muzzle2.global_transform
+			bullet_b.transform = %Muzzle3.global_transform
+			bullet_c.transform = %Muzzle4.global_transform
+			get_parent().add_child(bullet_a)
+			get_parent().add_child(bullet_b)
+			get_parent().add_child(bullet_c)
+		3:
+			var bullet_a = BULLET_LVL_2_C.instantiate()
+			var bullet_b = BULLET_LVL_2_C.instantiate()
+			var bullet_c = BULLET_LVL_2_C.instantiate()
+			var bullet_d = BULLET_LVL_2_E.instantiate()
+			var bullet_e = BULLET_LVL_2_E.instantiate()
+			bullet_a.transform = %Muzzle2.global_transform
+			bullet_b.transform = %Muzzle3.global_transform
+			bullet_c.transform = %Muzzle4.global_transform
+			bullet_d.transform = %Muzzle5.global_transform
+			bullet_e.transform = %Muzzle6.global_transform
+			get_parent().add_child(bullet_a)
+			get_parent().add_child(bullet_b)
+			get_parent().add_child(bullet_c)
+			get_parent().add_child(bullet_d)
+			get_parent().add_child(bullet_e)
 	
-	
-	
-	for muzzle in current_muzzle_list:
-		var b = BULLET.instantiate()
-		b.transform = muzzle.global_transform
-		get_parent().add_child(b)
-	
+#	for muzzle in current_muzzle_list:
+
 func hurt(damage: int = 1) -> void:
 	if not idle_estate_en:
 		health -= damage
@@ -79,6 +104,7 @@ func hurt(damage: int = 1) -> void:
 		idle_estate_en = true
 		%Ide_timer.start()
 		$AnimatedSprite2D.play("idle_state")
+		emit_signal("dammage")
 		if health <= 0:
 			queue_free()
 

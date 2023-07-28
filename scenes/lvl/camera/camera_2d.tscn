@@ -5,3 +5,4 @@
 [node name="Camera2D" type="Camera2D"]
 position = Vector2(112, 112)
 script = ExtResource("1_0snti")
+shake_amplitude = 1.5

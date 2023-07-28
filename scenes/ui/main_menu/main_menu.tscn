@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5ne5v7bafg1w"]
+
+[ext_resource type="Texture2D" uid="uid://co6ckv21g72dl" path="res://assets/aseprite/ui/MainMenu/logo_hahawoo.png" id="1_nwhl5"]
+[ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="2_dcwx2"]
+[ext_resource type="Texture2D" uid="uid://b45kusx6488tu" path="res://assets/aseprite/ui/MainMenu/github_icon.png" id="3_6e8uc"]
+[ext_resource type="Texture2D" uid="uid://c7jxpbx67kjb" path="res://assets/aseprite/ui/MainMenu/capibara_icon.png" id="4_wg6ce"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -104.0
+offset_right = 90.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_nwhl5")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dcwx2")
+text = "PLAY"
+flat = true
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dcwx2")
+text = "SETTINGS"
+flat = true
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_6e8uc")
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_wg6ce")
+stretch_mode = 0

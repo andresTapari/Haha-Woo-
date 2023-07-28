@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0uc1dga6mcch"
-path="res://.godot/imported/enemy_bullet.png-c03121a87df30e141ce05a2551f0f54e.ctex"
+uid="uid://bb0ixdeo3vqgw"
+path="res://.godot/imported/lvl_1_solid_tiles.png-90338f65ebe43cbbcf352d2cf8423bec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/enemys/enemy_bullet.png"
-dest_files=["res://.godot/imported/enemy_bullet.png-c03121a87df30e141ce05a2551f0f54e.ctex"]
+source_file="res://assets/aseprite/tiles/lvl_1_solid_tiles.png"
+dest_files=["res://.godot/imported/lvl_1_solid_tiles.png-90338f65ebe43cbbcf352d2cf8423bec.ctex"]
 
 [params]
 

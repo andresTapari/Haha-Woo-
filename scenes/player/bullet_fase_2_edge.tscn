@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://jlol2yuv4n75"]
+
+[ext_resource type="Script" path="res://scripts/player/bullet.gd" id="1_idbgp"]
+[ext_resource type="Texture2D" uid="uid://dd7mrhuevfiru" path="res://assets/aseprite/player/bullet/lvl_2and3_bullet_edge.png" id="3_gtl00"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fl1q"]
+size = Vector2(2, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjngq"]
+atlas = ExtResource("3_gtl00")
+region = Rect2(0, 0, 2, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qqkg"]
+atlas = ExtResource("3_gtl00")
+region = Rect2(2, 0, 2, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7x44"]
+atlas = ExtResource("3_gtl00")
+region = Rect2(4, 0, 2, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xej7b"]
+atlas = ExtResource("3_gtl00")
+region = Rect2(6, 0, 2, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ug2x"]
+atlas = ExtResource("3_gtl00")
+region = Rect2(8, 0, 2, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4fwq"]
+atlas = ExtResource("3_gtl00")
+region = Rect2(10, 0, 2, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06wog"]
+atlas = ExtResource("3_gtl00")
+region = Rect2(12, 0, 2, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rainj"]
+atlas = ExtResource("3_gtl00")
+region = Rect2(14, 0, 2, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3a80v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjngq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qqkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7x44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xej7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ug2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4fwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06wog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rainj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_idbgp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_4fl1q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = -1.57079
+sprite_frames = SubResource("SpriteFrames_3a80v")
+autoplay = "default"
+flip_v = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
