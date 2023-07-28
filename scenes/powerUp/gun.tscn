@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://wbj6chdwj578"]
+[gd_scene load_steps=13 format=3 uid="uid://wbj6chdwj578"]
 
+[ext_resource type="Script" path="res://scripts/powerUp/powerUpGun.gd" id="1_7n63g"]
 [ext_resource type="Texture2D" uid="uid://mhhkwchdst6y" path="res://assets/aseprite/powerUps/weapon_up.png" id="1_bpm0o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jht3n"]
@@ -70,6 +71,7 @@ animations = [{
 radius = 7.0
 
 [node name="powerUp" type="Area2D"]
+script = ExtResource("1_7n63g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -79,3 +81,5 @@ frame_progress = 0.625045
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g2i8p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

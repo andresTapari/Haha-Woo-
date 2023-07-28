@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="2_caoql"]
 [ext_resource type="PackedScene" uid="uid://cqyf1nngxrxws" path="res://scenes/lvl/lvls/lvl_1.tscn" id="3_d84ba"]
 [ext_resource type="PackedScene" uid="uid://od6yx3hynn6k" path="res://scenes/player/player.tscn" id="3_gamo2"]
-[ext_resource type="PackedScene" uid="uid://6grauelmth2s" path="res://scenes/ui/uiHeadder.tscn" id="3_j8qqq"]
+[ext_resource type="PackedScene" uid="uid://6grauelmth2s" path="res://scenes/ui/hud/uiHeadder.tscn" id="3_j8qqq"]
 [ext_resource type="PackedScene" uid="uid://cflg71otml7fi" path="res://scenes/lvl/lvls/lvl_2.tscn" id="3_mymfy"]
 [ext_resource type="PackedScene" uid="uid://dwmi586p2aqfl" path="res://scenes/lvl/lvls/lvl_3.tscn" id="4_3udhd"]
 [ext_resource type="PackedScene" uid="uid://deyn5ar642d1d" path="res://scenes/enemys/static_enemy/static_enemy.tscn" id="6_337nv"]

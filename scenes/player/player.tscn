@@ -57,7 +57,6 @@ radius = 6.08276
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
 script = ExtResource("1_b5heu")
-muzzle_stage = 1
 cadence_time = 0.25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

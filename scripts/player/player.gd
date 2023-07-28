@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Señales emitidas
-signal update_ui(data)
-signal dammage
+signal update_ui(data)		# Señal al hud para informar estado actual de player
+signal dammage				# Señal a la camara para informar cuando sacudir camara
 
 # Escenas:
 var BULLET_LVL_1   = preload("res://scenes/player/bullet_fase_1.tscn")
@@ -11,7 +11,7 @@ var BULLET_LVL_2_E = preload("res://scenes/player/bullet_fase_2_edge.tscn")
 
 # Variables de exportacion
 @export var VELOCIDAD:      int = 10000   	# velocidad de movimiento
-@export var muzzle_stage:   int = 2			# estado actual de modo de disparo
+@export var muzzle_stage:   int = 1			# estado actual de modo de disparo
 @export var idle_time:    float = 1.0		# duración de tiempo idle
 @export var cadence_time: float = .5		# cadencia de disparo
 
@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 	velocity = movimiento
 	move_and_slide()
 
+# Esta función dispara municiones segun el lvl del arma
 func shoot() -> void:
 	shoot_en = false
 	%Cadence_Timer.start()
@@ -94,7 +95,7 @@ func shoot() -> void:
 			get_parent().add_child(bullet_d)
 			get_parent().add_child(bullet_e)
 
-
+# Esta función se ejecuta cuando player recibe daño
 func hurt(damage: int = 1) -> void:
 	if not idle_estate_en:
 		health -= damage
@@ -106,6 +107,10 @@ func hurt(damage: int = 1) -> void:
 		if health <= 0:
 			queue_free()
 
+# Esta funcion envia una señal al hud, informando:
+#	<> vida actual
+#	<> lvl del arma
+
 func update_ui_signal() -> void:
 	var data = {
 		"health": health,
@@ -113,6 +118,19 @@ func update_ui_signal() -> void:
 	}
 	emit_signal("update_ui",data)
 
+# Esta funcion incrementa el lvl del arma
+func upgrade_gun() -> void:
+	if muzzle_stage < 3:
+		muzzle_stage += 1
+		update_ui_signal()
+
+# Esta funcion decrementa el lvl del arma
+func downgrade_gun() -> void:
+	if muzzle_stage > 1:
+		muzzle_stage -= 1
+		update_ui_signal()
+
+# Señales:
 func _on_ide_timer_timeout():
 	$AnimatedSprite2D.animation = "normal"
 	idle_estate_en = false
