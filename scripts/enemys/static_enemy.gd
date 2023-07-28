@@ -6,6 +6,7 @@ signal screen_update(node,flag)			#Señal cuando enemy entra en pantalla
 
 # Escenas
 @onready var BULLET:= preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
+@onready var EXPLOSION := preload("res://scenes/enemys/enemy_explosion.tscn")
 
 # Nodos
 @onready var rayCast2D        := $RayCast2D
@@ -48,9 +49,16 @@ func hurt(damage: int) -> void:
 	if health <= 0:
 		emit_signal("update_score",SCORE)
 		emit_signal("screen_update", self, false)
+		emit_explotion()
 		queue_free()
+	
 
-
+func emit_explotion():
+	var newExplotion = EXPLOSION.instantiate()
+	newExplotion.set("emitting",true)
+	newExplotion.global_position = self.global_position
+	get_parent().add_child(newExplotion)
+	
 func _on_cadence_timer_timeout():
 	shoot_en = true
 

@@ -107,6 +107,11 @@ func hurt(damage: int = 1) -> void:
 		if health <= 0:
 			queue_free()
 
+func heal(heal_amount: int = 1) -> void:
+	health += heal_amount
+	if health > 5:
+		health = 5
+	update_ui_signal()
 # Esta funcion envia una señal al hud, informando:
 #	<> vida actual
 #	<> lvl del arma

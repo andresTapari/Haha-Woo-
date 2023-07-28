@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwk8gql0c6kxu"]
+[gd_scene load_steps=14 format=3 uid="uid://cwk8gql0c6kxu"]
 
 [ext_resource type="Script" path="res://scripts/lvl/dev_lvl.gd" id="1_xnij3"]
 [ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="2_caoql"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://wbj6chdwj578" path="res://scenes/powerUp/gun.tscn" id="6_gtvoi"]
 [ext_resource type="PackedScene" uid="uid://vh7ir7t5rsjf" path="res://scenes/lvl/camera/camera_2d.tscn" id="8_iun8b"]
 [ext_resource type="PackedScene" uid="uid://d3lxlrcqqa306" path="res://scenes/enemys/movile_enemy/enemy_boss.tscn" id="10_82yth"]
+[ext_resource type="PackedScene" uid="uid://wk5y5xbv2cmi" path="res://scenes/powerUp/powerUpLife.tscn" id="11_dj7oh"]
 [ext_resource type="PackedScene" uid="uid://h1q6px0x85s4" path="res://scenes/lvl/lvls/lvl_4.tscn" id="11_f5gjg"]
 
 [node name="dev_lvl" type="Node2D"]
@@ -62,6 +63,7 @@ player_path = NodePath("../Player")
 [node name="static_enemy" parent="." instance=ExtResource("6_337nv")]
 position = Vector2(336, 112)
 player_path = NodePath("../Player")
+health = 5
 
 [node name="static_enemy2" parent="." instance=ExtResource("6_337nv")]
 position = Vector2(57, -56)
@@ -78,6 +80,9 @@ player_path = NodePath("../Player")
 [node name="enemy_boss" parent="." instance=ExtResource("10_82yth")]
 position = Vector2(314.91, -108.245)
 player_path = NodePath("../Player")
+
+[node name="powerUpLife" parent="." instance=ExtResource("11_dj7oh")]
+position = Vector2(784, 66)
 
 [node name="powerUp" parent="." instance=ExtResource("6_gtvoi")]
 position = Vector2(787, 167)

@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+metadata/_edit_horizontal_guides_ = [38.0]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -22,6 +23,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator6" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator7" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -47,19 +68,24 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Button" type="Button" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dcwx2")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 10
 text = "PLAY"
 flat = true
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
-texture_filter = 1
+texture_filter = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dcwx2")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 10
 disabled = true
 text = "SETTINGS"
 flat = true
@@ -90,3 +116,10 @@ texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("4_wg6ce")
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dcwx2")
+theme_override_font_sizes/font_size = 10
+text = "Team Capibara "
+horizontal_alignment = 1
