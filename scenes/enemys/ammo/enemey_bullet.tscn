@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbr110itvxv1f"]
+[gd_scene load_steps=6 format=3 uid="uid://dbr110itvxv1f"]
 
 [ext_resource type="Texture2D" uid="uid://c0uc1dga6mcch" path="res://assets/aseprite/enemys/enemy_bullet.png" id="1_a015i"]
 [ext_resource type="Script" path="res://scripts/enemys/enemey_bullet.gd" id="1_rb3a1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g5bj3"]
 radius = 4.0
+
+[sub_resource type="Curve" id="Curve_u05yk"]
+max_value = 3.0
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_c2v6r"]
+interpolation_mode = 2
+interpolation_color_space = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [node name="enemey_bullet" type="Area2D"]
 script = ExtResource("1_rb3a1")
@@ -15,5 +25,23 @@ texture = ExtResource("1_a015i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g5bj3")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+amount = 10
+direction = Vector2(0, 0)
+spread = 102.45
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = 20.43
+angular_velocity_max = 20.43
+linear_accel_min = 10.0
+linear_accel_max = 10.0
+damping_min = 10.0
+damping_max = 10.0
+scale_amount_curve = SubResource("Curve_u05yk")
+color = Color(1, 0.666667, 0.431373, 1)
+color_ramp = SubResource("Gradient_c2v6r")
+anim_speed_max = 58.1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

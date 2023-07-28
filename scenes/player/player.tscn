@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://od6yx3hynn6k"]
+[gd_scene load_steps=10 format=3 uid="uid://od6yx3hynn6k"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_b5heu"]
 [ext_resource type="Texture2D" uid="uid://bsc5f1oopduo7" path="res://assets/aseprite/player/player_ship.png" id="2_3kx8f"]
+[ext_resource type="Texture2D" uid="uid://c3out6lsmgers" path="res://assets/aseprite/player/player.png" id="2_utatf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gw5hv"]
-atlas = ExtResource("2_3kx8f")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlbkc"]
+atlas = ExtResource("2_utatf")
+region = Rect2(0, 0, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p006o"]
-atlas = ExtResource("2_3kx8f")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye37o"]
+atlas = ExtResource("2_utatf")
+region = Rect2(16, 0, 16, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c4p4g"]
 animations = [{
@@ -18,25 +19,25 @@ animations = [{
 "texture": null
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gw5hv")
+"texture": SubResource("AtlasTexture_rlbkc")
 }, {
 "duration": 1.0,
 "texture": null
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gw5hv")
+"texture": SubResource("AtlasTexture_rlbkc")
 }, {
 "duration": 1.0,
 "texture": null
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gw5hv")
+"texture": SubResource("AtlasTexture_rlbkc")
 }, {
 "duration": 1.0,
 "texture": null
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gw5hv")
+"texture": SubResource("AtlasTexture_rlbkc")
 }],
 "loop": true,
 "name": &"idle_state",
@@ -44,7 +45,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p006o")
+"texture": SubResource("AtlasTexture_rlbkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye37o")
 }],
 "loop": true,
 "name": &"normal",
@@ -54,6 +58,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rugm1"]
 radius = 6.08276
 
+[sub_resource type="Curve" id="Curve_5ov1s"]
+max_value = 3.0
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_nly43"]
+interpolation_mode = 2
+interpolation_color_space = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
 script = ExtResource("1_b5heu")
@@ -62,7 +76,8 @@ cadence_time = 0.25
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c4p4g")
 animation = &"normal"
-frame_progress = 0.9154
+autoplay = "normal"
+frame_progress = 0.745169
 
 [node name="PlayerShip" type="Sprite2D" parent="."]
 visible = false
@@ -118,6 +133,42 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Line2D" type="Line2D" parent="."]
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(5, 8)
+amount = 10
+direction = Vector2(0, 1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_min = 20.43
+angular_velocity_max = 20.43
+linear_accel_min = 10.0
+linear_accel_max = 10.0
+damping_min = 10.0
+damping_max = 10.0
+scale_amount_curve = SubResource("Curve_5ov1s")
+color = Color(0.756863, 0.992157, 0.94902, 1)
+color_ramp = SubResource("Gradient_nly43")
+anim_speed_max = 58.1
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2(-5, 8)
+amount = 10
+direction = Vector2(0, 1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_min = 20.43
+angular_velocity_max = 20.43
+linear_accel_min = 10.0
+linear_accel_max = 10.0
+damping_min = 10.0
+damping_max = 10.0
+scale_amount_curve = SubResource("Curve_5ov1s")
+color = Color(0.756863, 0.992157, 0.94902, 1)
+color_ramp = SubResource("Gradient_nly43")
+anim_speed_max = 58.1
 
 [connection signal="timeout" from="Timers/Ide_timer" to="." method="_on_ide_timer_timeout"]
 [connection signal="timeout" from="Timers/Cadence_Timer" to="." method="_on_cadence_timer_timeout"]

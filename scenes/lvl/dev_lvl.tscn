@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://h1q6px0x85s4" path="res://scenes/lvl/lvls/lvl_4.tscn" id="11_f5gjg"]
 
 [node name="dev_lvl" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_xnij3")
 
 [node name="uiHeadder" parent="." instance=ExtResource("3_j8qqq")]
