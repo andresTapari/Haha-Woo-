@@ -77,7 +77,7 @@ size_flags_vertical = 3
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dcwx2")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "PLAY"
 flat = true
 
@@ -123,3 +123,8 @@ theme_override_fonts/font = ExtResource("2_dcwx2")
 theme_override_font_sizes/font_size = 10
 text = "Team Capibara "
 horizontal_alignment = 1
+
+[node name="HSeparator8" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
