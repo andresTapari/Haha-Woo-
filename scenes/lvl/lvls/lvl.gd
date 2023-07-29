@@ -2,7 +2,7 @@ extends TileMap
 
 # Señales
 signal change_lvl(dir,new_cam_pos)
-
+signal pause_request()
 # Nodos
 @export var camera_pos_node: NodePath
 
@@ -18,6 +18,7 @@ func _ready():
 	for element in childrens:
 		if element.is_in_group("door"):
 			element.lvl_transition.connect(handle_lvl_transition)
+			element.pause_request.connect(handle_pause_request)
 			doors.append(element)
 	open_doors()
 
@@ -28,6 +29,9 @@ func get_camera_position() -> Vector2:
 # Funcion que emite señal para mover la camara de sala a sala
 func handle_lvl_transition(direction: int) -> void:
 	emit_signal("change_lvl",direction,camera_posistion)
+
+func handle_pause_request() -> void:
+	emit_signal("pause_request")
 
 # Funcion que resetea el estado de todas las puertas
 func reset_doors():

@@ -2,6 +2,7 @@ extends Node2D
 
 # Señal
 signal lvl_transition(dir)
+signal pause_request()
 
 # Parametros
 enum dir {player_out = 0, player_in = 1}
@@ -34,10 +35,12 @@ func check_direction():
 
 	if flag_A and not flag_B:
 		emit_signal("lvl_transition",dir.player_out)
+		%CollisionShape2D.set_deferred("disabled",false)
 
 	if flag_B and not flag_A:
 		emit_signal("lvl_transition",dir.player_in)
-
+		%CollisionShape2D.set_deferred("disabled",false)
+		
 # Esta funcion reestablece el estado de pase de player 
 # por la puerta
 func reset():
@@ -55,3 +58,10 @@ func close():
 	if is_open:
 		is_open = false
 		%AnimationPlayer.play("door_close")
+
+
+# Esta función se ejecuta cuando body entra en la zona.
+func _on_pause_area_body_entered(body):
+	if body.is_in_group("player"):
+		emit_signal("pause_request")
+		%CollisionShape2D.set_deferred("disabled",true)

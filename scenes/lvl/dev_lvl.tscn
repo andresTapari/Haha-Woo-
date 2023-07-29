@@ -32,6 +32,7 @@ position = Vector2(448, 0)
 position = Vector2(672, 0)
 
 [node name="Camera2D" parent="." instance=ExtResource("8_iun8b")]
+process_mode = 3
 position = Vector2(112, 93)
 lvl_path = NodePath("../TileMap")
 

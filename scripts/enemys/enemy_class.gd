@@ -7,7 +7,6 @@ class_name ENEMY_CLASS
 @export var Muzzle_node_path: NodePath
 
 
-
 var rayCast: RayCast2D
 var muzzle:  Marker2D
 

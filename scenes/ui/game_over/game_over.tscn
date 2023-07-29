@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="1_3cwfx"]
 
-[node name="Control" type="Control"]
+[node name="game_over_screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

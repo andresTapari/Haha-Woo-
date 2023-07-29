@@ -5,7 +5,7 @@ signal update_score(score)			#Señal cuando enemy muere y actualiza el puntaje
 signal screen_update(node,flag)			#Señal cuando enemy entra en pantalla
 
 # Escenas
-@onready var BULLET:= preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
+@onready var BULLET    := preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
 @onready var EXPLOSION := preload("res://scenes/enemys/enemy_explosion.tscn")
 
 # Nodos
