@@ -1,18 +1,7 @@
-extends CharacterBody2D
-
-# Señales emitidas:
-signal update_score(score)
-signal screen_update(flag)			#Señal cuando enemy entra en pantalla
-
-# Variables:
-@export var SCORE: int  = 50
-@export var HEATLH: int = 10
-@export var SPEED: float = 3000.0
-@export var player_path: NodePath
-@export var cadence: float = .5
+extends Enemy_class
 
 # Export:
-@onready var BULLET:= preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
+#@onready var BULLET:= preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
 @onready var rayCast2D :RayCast2D = $RayCast2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
@@ -22,13 +11,13 @@ var current_health: int = HEATLH
 
 
 func _ready() -> void:
-	$CadenceTimer.wait_time = cadence
-	if player_path:
-		player = get_node(player_path)
-	navigation_agent.path_desired_distance  = 4.0
-	navigation_agent.target_desired_distance = 4.0
-	call_deferred("actor_setup")
-
+#	$CadenceTimer.wait_time = cadence
+#	if player_path:
+#		player = get_node(player_path)
+#	navigation_agent.path_desired_distance  = 4.0
+#	navigation_agent.target_desired_distance = 4.0
+#	call_deferred("actor_setup")
+	pass
 func actor_setup() -> void:
 	await get_tree().physics_frame
 	set_movement_target(player.position)
