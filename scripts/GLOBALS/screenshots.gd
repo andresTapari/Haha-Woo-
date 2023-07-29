@@ -1,15 +1,8 @@
 extends Node
 
 func _input(event):
-	# Verificar si se presionó la tecla "ImpPnt" (Imprimir Pantalla)
+	# Verificar si se presionó la tecla "SPACE" (Imprimir Pantalla)
 	if event is InputEventKey and event.keycode == KEY_SPACE:
-		# Obtener el viewport actual
-#		var viewport = get_viewport()
-
-		# Crear una textura para capturar el viewport
-#		var texture = ImageTexture.new()
-#		texture.create_from_image(viewport.get_texture().get_image())
-
 		# Obtener la fecha y hora actual para usarlo en el nombre del archivo
 		var date_time 		= Time.get_date_dict_from_system()
 		var date_time_clock = Time.get_time_dict_from_system()
