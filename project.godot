@@ -16,6 +16,10 @@ run/main_scene="res://scenes/lvl/dev_lvl.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Screenshots="*res://scripts/GLOBALS/screenshots.gd"
+
 [display]
 
 window/size/viewport_width=224
