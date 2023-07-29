@@ -222,6 +222,11 @@ position = Vector2(0, -36)
 shape = SubResource("RectangleShape2D_ay7xp")
 disabled = true
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -13)
+enabled = false
+target_position = Vector2(0, -13)
+
 [connection signal="body_entered" from="Second_area" to="." method="_on_second_area_body_entered"]
 [connection signal="body_entered" from="First_area" to="." method="_on_first_area_body_entered"]
 [connection signal="body_entered" from="PauseArea" to="." method="_on_pause_area_body_entered"]
