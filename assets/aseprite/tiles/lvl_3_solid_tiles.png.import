@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsc5f1oopduo7"
-path="res://.godot/imported/player_ship.png-c39db8f4008d26b6548aca764297a535.ctex"
+uid="uid://ctdw2gnq7dohy"
+path="res://.godot/imported/lvl_3_solid_tiles.png-2b5465f8cea2f8ad7d4a9cb72b9e7882.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aseprite/player/player_ship.png"
-dest_files=["res://.godot/imported/player_ship.png-c39db8f4008d26b6548aca764297a535.ctex"]
+source_file="res://assets/aseprite/tiles/lvl_3_solid_tiles.png"
+dest_files=["res://.godot/imported/lvl_3_solid_tiles.png-2b5465f8cea2f8ad7d4a9cb72b9e7882.ctex"]
 
 [params]
 

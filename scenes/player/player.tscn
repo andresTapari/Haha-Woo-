@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://od6yx3hynn6k"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_b5heu"]
-[ext_resource type="Texture2D" uid="uid://bsc5f1oopduo7" path="res://assets/aseprite/player/player_ship.png" id="2_3kx8f"]
 [ext_resource type="Texture2D" uid="uid://c3out6lsmgers" path="res://assets/aseprite/player/player.png" id="2_utatf"]
+[ext_resource type="Texture2D" uid="uid://bsc5f1oopduo7" path="res://assets/aseprite/player/placeholder/player_ship.png" id="3_rbay0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlbkc"]
 atlas = ExtResource("2_utatf")
@@ -81,7 +81,7 @@ frame_progress = 0.745169
 
 [node name="PlayerShip" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("2_3kx8f")
+texture = ExtResource("3_rbay0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rugm1")
