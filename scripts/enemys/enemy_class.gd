@@ -9,6 +9,7 @@ signal screen_update(flag)			# Señal cuando enemy entra en pantalla
 @onready var BULLET    := preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
 @onready var EXPLOSION := preload("res://scenes/enemys/enemy_explosion.tscn")
 @onready var SOUND_FX  := preload("res://scenes/soundFx/SoundFx.tscn")
+
 # Variables:
 @export_category("Enemy Propertys")
 @export_enum("Movil Enemy","Static Enemy", "Trap Enemy") var enemy_type: int = 0
@@ -142,7 +143,6 @@ func _on_target_timer_timeout() -> void:
 	
 func _on_handle_modulate_timer_timeout() -> void:
 	set("modulate",Color.WHITE)
-
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
 	emit_signal("screen_update", self ,true)
