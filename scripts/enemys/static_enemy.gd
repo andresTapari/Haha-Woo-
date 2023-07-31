@@ -1,6 +1,6 @@
 extends Enemy_class
 
-func _process(delta):
+func _process(_delta):
 	if not player:
 		return
 	var target_pos: Vector2 = player.position - self.position

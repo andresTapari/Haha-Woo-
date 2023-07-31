@@ -11,7 +11,6 @@ motion_mode = 1
 script = ExtResource("1_svwdb")
 HEATLH = 5
 NavigationAgent2D_path = NodePath("NavigationAgent2D")
-TargetTimer_path = null
 RayCast2D_path = NodePath("RayCast2D")
 VisibleOnScreenEnabler2D_path = NodePath("VisibleOnScreenEnabler2D")
 
