@@ -9,6 +9,7 @@ signal game_over		# Señal para cambiar pantalla a game_over
 var BULLET_LVL_1   = preload("res://scenes/player/bullet_fase_1.tscn")
 var BULLET_LVL_2_C = preload("res://scenes/player/bullet_fase_2_center.tscn")
 var BULLET_LVL_2_E = preload("res://scenes/player/bullet_fase_2_edge.tscn")
+var SOUND_FX       = preload("res://scenes/soundFx/SoundFx.tscn")
 
 # Variables de exportacion
 @export var VELOCIDAD:      int = 10000   	# velocidad de movimiento
@@ -64,6 +65,7 @@ func _physics_process(delta: float) -> void:
 func shoot() -> void:
 	shoot_en = false
 	%Cadence_Timer.start()
+	SoundFx.play_sound("res://assets/soundFx/player_laserShoot.wav")
 	match muzzle_stage:
 		1:
 			var b = BULLET_LVL_1.instantiate()
@@ -98,6 +100,7 @@ func shoot() -> void:
 
 # Esta función se ejecuta cuando player recibe daño
 func hurt(damage: int = 1) -> void:
+	SoundFx.play_sound("res://assets/soundFx/player_hitHurt.wav")
 	if not idle_estate_en:
 		health -= damage
 		update_ui_signal()
@@ -114,10 +117,10 @@ func heal(heal_amount: int = 1) -> void:
 	if health > 5:
 		health = 5
 	update_ui_signal()
+
 # Esta funcion envia una señal al hud, informando:
 #	<> vida actual
 #	<> lvl del arma
-
 func update_ui_signal() -> void:
 	var data = {
 		"health": health,

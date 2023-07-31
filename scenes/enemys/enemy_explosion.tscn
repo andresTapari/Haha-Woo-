@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0mtw86sv2ypt"]
+[gd_scene load_steps=7 format=3 uid="uid://d0mtw86sv2ypt"]
+
+[ext_resource type="AudioStream" uid="uid://bj6x0pgvkdddi" path="res://assets/soundFx/enemy_explosion.wav" id="1_tehno"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_srkop"]
 particles_animation = true
@@ -50,3 +52,8 @@ color_initial_ramp = SubResource("Gradient_mcqbe")
 hue_variation_min = 1.0
 hue_variation_max = 1.0
 anim_speed_curve = SubResource("Curve_04vp5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_tehno")
+autoplay = true
+bus = &"Fx"

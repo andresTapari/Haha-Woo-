@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx6vnh10meu6m"]
+
+[ext_resource type="Script" path="res://scripts/soundFx/SoundFx.gd" id="1_j31jf"]
+
+[node name="SoundFx" type="AudioStreamPlayer"]
+autoplay = true
+bus = &"Fx"
+script = ExtResource("1_j31jf")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

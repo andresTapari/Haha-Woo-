@@ -6,9 +6,9 @@ signal update_score(score)			# Señal de actualizar puntaje en hud cuando unidad
 signal screen_update(flag)			# Señal cuando enemy entra en pantalla
 
 # Escenas precargadas:
-@onready var BULLET:= preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
+@onready var BULLET    := preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
 @onready var EXPLOSION := preload("res://scenes/enemys/enemy_explosion.tscn")
-
+@onready var SOUND_FX  := preload("res://scenes/soundFx/SoundFx.tscn")
 # Variables:
 @export_category("Enemy Propertys")
 @export_enum("Movil Enemy","Static Enemy", "Trap Enemy") var enemy_type: int = 0
@@ -90,10 +90,12 @@ func shoot() -> void:
 	var b = BULLET.instantiate()
 	b.transform = $Icon/Muzzle.global_transform
 	get_parent().add_child(b)
+	SoundFx.play_sound("res://assets/soundFx/enemy_laserShoot.wav")
 	cadenceTimer.start()
-
 # Esta función decrementa la vida de enemy
+
 func hurt(damage: int) -> void:
+	SoundFx.play_sound("res://assets/soundFx/enemy_hit.wav")
 	if current_health > 0:
 		current_health -= damage
 		if current_health <= 0:
@@ -114,6 +116,12 @@ func emit_explotion():
 func set_movement_target(newPos: Vector2) -> void:
 	navigation_agent.target_position = newPos
 	
+# Esta funcion reproduce el sonido en "sound_path"
+func play_sound_fx(sound_path) -> void:
+	var newSound = SOUND_FX.instantiate()
+	newSound.load_stream_and_play(sound_path)
+	get_parent().add_child(newSound)
+
 # Señales:
 func _on_cadence_timer_timeout() -> void:
 	shoot_en = true
