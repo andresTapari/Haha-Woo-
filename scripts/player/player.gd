@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 # Señales emitidas
-signal update_ui(data)		# Señal al hud para informar estado actual de player
-signal dammage				# Señal a la camara para informar cuando sacudir camara
+signal update_ui(data)	# Señal al hud para informar estado actual de player
+signal dammage			# Señal a la camara para informar cuando sacudir camara
+signal game_over		# Señal para cambiar pantalla a game_over
 
 # Escenas:
 var BULLET_LVL_1   = preload("res://scenes/player/bullet_fase_1.tscn")
@@ -25,7 +26,7 @@ var idle_estate_en: bool  = false			# Bandera de estado idle
 var shoot_en:       bool  = true			# Bandera de disparo habilitado
 
 func _ready() -> void:
-#	muzzle_stage_1 = $Muzzle_stage_1.get_children()
+#	muzzle_stage_1 = $Muzzle_stage_1.playerget_children()
 	muzzle_stage_2 = $Muzzle_stage_2.get_children()
 	muzzle_stage_3 = $Muzzle_stage_3.get_children()
 	%Ide_timer.wait_time     = idle_time
@@ -105,6 +106,7 @@ func hurt(damage: int = 1) -> void:
 		$AnimatedSprite2D.play("idle_state")
 		emit_signal("dammage")
 		if health <= 0:
+			emit_signal("game_over")
 			queue_free()
 
 func heal(heal_amount: int = 1) -> void:

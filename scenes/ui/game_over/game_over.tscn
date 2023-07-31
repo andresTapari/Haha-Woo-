@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dplxx7fj3wth"]
+[gd_scene load_steps=3 format=3 uid="uid://dplxx7fj3wth"]
 
+[ext_resource type="Script" path="res://scenes/ui/game_over/game_over.gd" id="1_1ylat"]
 [ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="1_3cwfx"]
 
 [node name="game_over_screen" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1ylat")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,7 +56,8 @@ text = "SCORE:"
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_3cwfx")
@@ -66,7 +69,22 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3cwfx")
+theme_override_font_sizes/font_size = 10
+text = "Main Menu"
+flat = true
+
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

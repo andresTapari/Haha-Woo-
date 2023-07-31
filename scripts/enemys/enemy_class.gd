@@ -97,6 +97,7 @@ func hurt(damage: int) -> void:
 	if current_health > 0:
 		current_health -= damage
 		if current_health <= 0:
+			Score.add_score(SCORE)
 			emit_signal("update_score", SCORE)
 			emit_signal("screen_update", self ,false)
 			emit_explotion()

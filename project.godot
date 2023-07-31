@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Screenshots="*res://scripts/GLOBALS/screenshots.gd"
+Score="*res://scripts/GLOBALS/score.gd"
 
 [display]
 

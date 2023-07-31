@@ -6,7 +6,8 @@ func _ready():
 	connect_enemys_to_score_ui()
 	connect_enemys_to_doors()
 	connect_lvls_to_lvls_transitions_and_pause()
-
+	connect_player_to_lvl()
+	
 # Esta función conecta los enemigos con el hud
 func connect_enemys_to_score_ui():
 	var enemy_list: Array = get_tree().get_nodes_in_group("enemy")
@@ -25,6 +26,11 @@ func connect_enemys_to_doors():
 	var enemy_lst: Array = get_tree().get_nodes_in_group("enemy")
 	for enemy in enemy_lst:
 		enemy.screen_update.connect(handle_enemy_screen_update)
+
+func connect_player_to_lvl() -> void:
+	var player = get_tree().get_nodes_in_group("player")
+	if is_instance_valid(player[0]):
+		player[0].game_over.connect(handle_game_over_request)
 
 # Esta función actualiza el puntaje del jugador:   
 # Cuando un enemigo se destruye transmite su valor de puntaje
@@ -70,3 +76,6 @@ func reset_doors():
 		if element.is_in_group("level"):
 			element.reset_doors()
 
+# Esta funcón cambia la escena actual a la pantalla de Game Over
+func handle_game_over_request() -> void:
+	get_tree().change_scene_to_file("res://scenes/ui/game_over/game_over.tscn")
