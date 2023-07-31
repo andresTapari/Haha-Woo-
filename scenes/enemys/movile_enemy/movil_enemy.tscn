@@ -9,14 +9,11 @@ radius = 7.0
 [node name="movil_enemy" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 script = ExtResource("1_svwdb")
-enemy_type = null
-SCORE = null
 HEATLH = 5
-SPEED = null
-time_betwen_shoots = null
-player_path = null
-CadenceTimer_path = null
+NavigationAgent2D_path = NodePath("NavigationAgent2D")
 TargetTimer_path = null
+RayCast2D_path = NodePath("RayCast2D")
+VisibleOnScreenEnabler2D_path = NodePath("VisibleOnScreenEnabler2D")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
@@ -32,25 +29,14 @@ texture = ExtResource("2_lwf3k")
 position = Vector2(0, -9)
 rotation = -1.5708
 
-[node name="CadenceTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="TargetTimer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 32.0
 time_horizon_agents = 0.2
 max_speed = 1000.0
+debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0.0588235, 0.0588235, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(110, 0)
-
-[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
-[connection signal="timeout" from="CadenceTimer" to="." method="_on_cadence_timer_timeout"]
-[connection signal="timeout" from="TargetTimer" to="." method="_on_target_timer_timeout"]

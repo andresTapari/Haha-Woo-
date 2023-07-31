@@ -64,7 +64,6 @@ player_path = NodePath("../Player")
 [node name="static_enemy" parent="." instance=ExtResource("6_337nv")]
 position = Vector2(336, 112)
 player_path = NodePath("../Player")
-health = 5
 
 [node name="static_enemy2" parent="." instance=ExtResource("6_337nv")]
 position = Vector2(57, -56)

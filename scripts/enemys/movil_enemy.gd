@@ -1,14 +1,10 @@
 # movil_enemy.gd
 extends Enemy_class
 
-# Export:
-@onready var rayCast2D :RayCast2D = $RayCast2D
-
 
 func _physics_process(delta) -> void:
 	if not is_instance_valid(player):
-		# Si player no existe sale
-		return
+		return # Si player no existe sale
 	
 	# Orientamos el personaje:
 	$Icon.look_at(player.global_position)
@@ -27,13 +23,3 @@ func _physics_process(delta) -> void:
 	new_velocity = new_velocity.normalized()*SPEED*delta
 	velocity = new_velocity
 	move_and_slide()
-
-func _on_target_timer_timeout():
-	if is_instance_valid(player):
-		set_movement_target(player.position)
-
-func _on_visible_on_screen_enabler_2d_screen_entered():
-	emit_signal("screen_update", self ,true)
-
-func _on_visible_on_screen_enabler_2d_screen_exited():
-	emit_signal("screen_update", self ,false)

@@ -1,4 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0mtw86sv2ypt"]
+[gd_scene load_steps=6 format=3 uid="uid://d0mtw86sv2ypt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_srkop"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_whty5"]
 _data = [Vector2(0.0488722, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -16,6 +22,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="CPUParticles2D" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_srkop")
 emitting = false
 amount = 50
 lifetime = 0.5
