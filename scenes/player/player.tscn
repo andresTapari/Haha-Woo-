@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://od6yx3hynn6k"]
+[gd_scene load_steps=12 format=3 uid="uid://od6yx3hynn6k"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_b5heu"]
 [ext_resource type="Texture2D" uid="uid://c3out6lsmgers" path="res://assets/aseprite/player/player.png" id="2_utatf"]
@@ -58,6 +58,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rugm1"]
 radius = 6.08276
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bu5aq"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
 [sub_resource type="Curve" id="Curve_5ov1s"]
 max_value = 3.0
 _data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -67,6 +73,12 @@ point_count = 2
 interpolation_mode = 2
 interpolation_color_space = 2
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g7os6"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 texture_filter = 3
@@ -135,6 +147,7 @@ one_shot = true
 [node name="Line2D" type="Line2D" parent="."]
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_bu5aq")
 position = Vector2(5, 8)
 amount = 10
 direction = Vector2(0, 1)
@@ -153,6 +166,7 @@ color_ramp = SubResource("Gradient_nly43")
 anim_speed_max = 58.1
 
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_g7os6")
 position = Vector2(-5, 8)
 amount = 10
 direction = Vector2(0, 1)
