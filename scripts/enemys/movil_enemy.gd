@@ -4,6 +4,7 @@ extends Enemy_class
 # Export:
 @onready var rayCast2D :RayCast2D = $RayCast2D
 
+
 func _physics_process(delta) -> void:
 	if not is_instance_valid(player):
 		# Si player no existe sale
@@ -26,12 +27,6 @@ func _physics_process(delta) -> void:
 	new_velocity = new_velocity.normalized()*SPEED*delta
 	velocity = new_velocity
 	move_and_slide()
-
-
-
-
-func _on_cadence_timer_timeout():
-	shoot_en = true
 
 func _on_target_timer_timeout():
 	if is_instance_valid(player):
