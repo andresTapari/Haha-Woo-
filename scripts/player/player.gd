@@ -25,6 +25,7 @@ var muzzle_stage_2: Array = []				# Array de muzzle_2
 var muzzle_stage_3: Array = []				# Array de muzzle_3
 var idle_estate_en: bool  = false			# Bandera de estado idle
 var shoot_en:       bool  = true			# Bandera de disparo habilitado
+var target_to_move: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 #	muzzle_stage_1 = $Muzzle_stage_1.playerget_children()
@@ -36,26 +37,36 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	direccion = Vector2.ZERO
-
-	# Mouse Direction
-	var mouse_pos = get_global_mouse_position()
-	var direccion_mouse = (mouse_pos - global_position).normalized()
-	rotation = direccion_mouse.angle() + PI/2
-
-	# Input Teclado
-	if Input.is_action_pressed("ui_right"):
-		direccion.x += 1
-	if Input.is_action_pressed("ui_left"):
-		direccion.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		direccion.y += 1
-	if Input.is_action_pressed("ui_up"):
-		direccion.y -= 1
-	direccion = direccion.normalized()
 	
+	# Si ya estoy lo suficientemente cerca del target cancelo el movimiento automatico
+	if((global_position - target_to_move).length() < 5):
+		target_to_move = Vector2.ZERO
+	
+	# Si tengo un target al cual moverme lo seteo como la direccion deseada
+	if(target_to_move != Vector2.ZERO):
+		direccion = target_to_move - global_position
+	else:
+		# Mouse Direction
+		var mouse_pos = get_global_mouse_position()
+		var direccion_mouse = (mouse_pos - global_position).normalized()
+		rotation = direccion_mouse.angle() + PI/2
+
+		# Input Teclado
+		if Input.is_action_pressed("ui_right"):
+			direccion.x += 1
+		if Input.is_action_pressed("ui_left"):
+			direccion.x -= 1
+		if Input.is_action_pressed("ui_down"):
+			direccion.y += 1
+		if Input.is_action_pressed("ui_up"):
+			direccion.y -= 1
+	
+	# Normalizo la direccion
+	direccion = direccion.normalized()
 	# Disparo
 	if Input.is_action_pressed("shoot") and !idle_estate_en:
 		if shoot_en: shoot()
+	
 	# Movemos a player
 	var movimiento = direccion * VELOCIDAD * delta
 	velocity = movimiento
@@ -147,3 +158,6 @@ func _on_ide_timer_timeout():
 
 func _on_cadence_timer_timeout():
 	shoot_en = true
+
+func set_target_to_move(target):
+	target_to_move = target;

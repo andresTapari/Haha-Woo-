@@ -21,15 +21,15 @@ func _on_first_area_body_entered(body):
 	if not body.is_in_group("player"):
 		return
 	flag_A = true
-	check_direction()
+	check_direction(body)
 
 func _on_second_area_body_entered(body):
 	if not body.is_in_group("player"):
 		return
 	flag_B = true
-	check_direction()
+	check_direction(body)
 
-func check_direction():
+func check_direction(body):
 	if flag_A and flag_B:
 		return
 
@@ -39,6 +39,8 @@ func check_direction():
 
 	if flag_B and not flag_A:
 		emit_signal("lvl_transition",dir.player_in)
+		# Al entrar a una sala inicio un movimiento automatico hacia la pausa
+		body.set_target_to_move($target_to_move.global_position)
 		%CollisionShape2D.set_deferred("disabled",false)
 		
 # Esta funcion reestablece el estado de pase de player 
