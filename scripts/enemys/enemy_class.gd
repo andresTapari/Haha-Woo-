@@ -9,6 +9,7 @@ signal screen_update(flag)			# Señal cuando enemy entra en pantalla
 @onready var BULLET    := preload("res://scenes/enemys/ammo/enemey_bullet.tscn")
 @onready var EXPLOSION := preload("res://scenes/enemys/enemy_explosion.tscn")
 @onready var SOUND_FX  := preload("res://scenes/soundFx/SoundFx.tscn")
+
 # Variables:
 @export_category("Enemy Propertys")
 @export_enum("Movil Enemy","Static Enemy", "Trap Enemy") var enemy_type: int = 0
@@ -33,6 +34,7 @@ var cadenceTimer: Timer								# Timer de espera entre disparos
 var targetTimer:  Timer								# Timer para recalcular la pos de player
 var rayCast2D:    RayCast2D							# Raycast que apunta al jugador para disparar
 var visibleOnScreenEn2D: VisibleOnScreenEnabler2D 	# Nodo que habilita y avisa cuando enemigo es visible en pantalla
+var modulateTimer: Timer							# Timer para restaurar color cuando enemy es golpeado
 
 # Variables
 var shoot_en: bool = true				# Bandera de disparo, si es 1 puede disparar
@@ -77,6 +79,13 @@ func _ready() -> void:
 		visibleOnScreenEn2D.screen_entered.connect(_on_visible_on_screen_enabler_2d_screen_entered)
 		visibleOnScreenEn2D.screen_exited.connect(_on_visible_on_screen_enabler_2d_screen_exited)
 
+	# Configuramos Color Modulate:
+	modulateTimer = Timer.new()
+	modulateTimer.set("wait_time",0.10)
+	modulateTimer.set("one_shot", true)
+	modulateTimer.timeout.connect(_on_handle_modulate_timer_timeout)
+	add_child(modulateTimer)
+	
 # Esta funcion configura al agente de navegación, para establecer su
 # destino con la posición de player
 func actor_setup() -> void:
@@ -104,6 +113,8 @@ func hurt(damage: int) -> void:
 			emit_signal("screen_update", self ,false)
 			emit_explotion()
 			queue_free()
+	set("modulate",Color.RED)
+	modulateTimer.start()
 
 # Genera una explosión cuando es llamada
 func emit_explotion():
@@ -129,6 +140,9 @@ func _on_cadence_timer_timeout() -> void:
 func _on_target_timer_timeout() -> void:
 	if is_instance_valid(player):
 		set_movement_target(player.position)
+	
+func _on_handle_modulate_timer_timeout() -> void:
+	set("modulate",Color.WHITE)
 
 func _on_visible_on_screen_enabler_2d_screen_entered():
 	emit_signal("screen_update", self ,true)
