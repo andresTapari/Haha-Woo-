@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwk8gql0c6kxu"]
+[gd_scene load_steps=15 format=3 uid="uid://cwk8gql0c6kxu"]
 
 [ext_resource type="Script" path="res://scripts/lvl/dev_lvl.gd" id="1_xnij3"]
 [ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="2_caoql"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d3lxlrcqqa306" path="res://scenes/enemys/movile_enemy/enemy_boss.tscn" id="10_82yth"]
 [ext_resource type="PackedScene" uid="uid://wk5y5xbv2cmi" path="res://scenes/powerUp/powerUpLife.tscn" id="11_dj7oh"]
 [ext_resource type="PackedScene" uid="uid://h1q6px0x85s4" path="res://scenes/lvl/lvls/lvl_4.tscn" id="11_f5gjg"]
+[ext_resource type="AudioStream" uid="uid://43ho46if2nk5" path="res://assets/music/the-dying-110458.mp3" id="14_rm7bb"]
 
 [node name="dev_lvl" type="Node2D"]
 texture_filter = 1
@@ -91,6 +92,11 @@ position = Vector2(787, 167)
 unique_name_in_owner = true
 position = Vector2(111, 112)
 rotation = -1.57079
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("14_rm7bb")
+autoplay = true
 
 [connection signal="dammage" from="Player" to="Camera2D" method="_on_player_dammage"]
 [connection signal="update_ui" from="Player" to="uiHeadder" method="_on_player_update_ui"]

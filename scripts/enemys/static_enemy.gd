@@ -16,3 +16,4 @@ func shoot():
 		var b = BULLET.instantiate()
 		b.transform = element.global_transform
 		get_parent().add_child(b)
+		SoundFx.play_sound("res://assets/soundFx/enemy_laserShoot.wav")
