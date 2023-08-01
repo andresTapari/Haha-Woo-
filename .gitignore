@@ -1,4 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 export/
+<<<<<<< HEAD
 
+=======
+>>>>>>> ed9b340765f06429278ab2692f16da1f2b55d0ad
