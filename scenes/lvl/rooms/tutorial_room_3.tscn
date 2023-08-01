@@ -24,6 +24,7 @@ position = Vector2(112, 93)
 [node name="door2" parent="." instance=ExtResource("3_rgxwb")]
 position = Vector2(216, 112)
 rotation = 1.5708
+door_type = 1
 
 [node name="door3" parent="." instance=ExtResource("3_rgxwb")]
 position = Vector2(112, 8)
