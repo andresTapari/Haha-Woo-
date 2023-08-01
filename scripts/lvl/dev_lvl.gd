@@ -79,3 +79,8 @@ func reset_doors():
 # Esta funcón cambia la escena actual a la pantalla de Game Over
 func handle_game_over_request() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/game_over/game_over.tscn")
+
+
+func _on_win_event_body_entered(body):
+	if body.is_in_group("player"):
+		get_tree().change_scene_to_file("res://scenes/ui/win_screen/win_screen.tscn")

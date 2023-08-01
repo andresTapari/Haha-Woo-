@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwk8gql0c6kxu"]
+[gd_scene load_steps=18 format=3 uid="uid://cwk8gql0c6kxu"]
 
 [ext_resource type="Script" path="res://scripts/lvl/dev_lvl.gd" id="1_xnij3"]
 [ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="2_caoql"]
@@ -16,6 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://43ho46if2nk5" path="res://assets/music/the-dying-110458.mp3" id="14_rm7bb"]
 [ext_resource type="PackedScene" uid="uid://dxmw76mkkeqbm" path="res://scenes/lvl/rooms/tutorial_room_5.tscn" id="15_no1im"]
 [ext_resource type="PackedScene" uid="uid://cbccam2e0qogb" path="res://scenes/lvl/rooms/tutorial_room_6.tscn" id="16_2ylph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85oqs"]
+size = Vector2(32, 20)
 
 [node name="dev_lvl" type="Node2D"]
 texture_filter = 1
@@ -58,18 +61,19 @@ player_path = NodePath("../Player")
 
 [node name="movil_enemy2" parent="." instance=ExtResource("2_caoql")]
 visible = false
-position = Vector2(486, -166)
+position = Vector2(521, -177)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy3" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(342, -180)
+visible = false
+position = Vector2(560, -87)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy4" parent="." instance=ExtResource("2_caoql")]
 visible = false
-position = Vector2(627, -165)
+position = Vector2(593, -177)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
@@ -79,27 +83,37 @@ position = Vector2(336, 112)
 player_path = NodePath("../Player")
 
 [node name="static_enemy2" parent="." instance=ExtResource("6_337nv")]
+visible = false
 position = Vector2(57, -56)
 player_path = NodePath("../Player")
 
 [node name="static_enemy3" parent="." instance=ExtResource("6_337nv")]
+visible = false
 position = Vector2(56, -168)
 player_path = NodePath("../Player")
 
 [node name="static_enemy4" parent="." instance=ExtResource("6_337nv")]
 visible = false
-position = Vector2(559, -164)
+position = Vector2(632, -123)
+player_path = NodePath("../Player")
+
+[node name="static_enemy5" parent="." instance=ExtResource("6_337nv")]
+visible = false
+position = Vector2(488, -122)
 player_path = NodePath("../Player")
 
 [node name="static_enemy6" parent="." instance=ExtResource("6_337nv")]
-position = Vector2(711, -190)
+visible = false
+position = Vector2(746, -154)
 player_path = NodePath("../Player")
 
 [node name="static_enemy7" parent="." instance=ExtResource("6_337nv")]
-position = Vector2(855, -190)
+visible = false
+position = Vector2(822, -154)
 player_path = NodePath("../Player")
 
 [node name="enemy_boss" parent="." instance=ExtResource("10_82yth")]
+visible = false
 position = Vector2(785, -170)
 HEATLH = 50
 player_path = NodePath("../Player")
@@ -120,5 +134,12 @@ process_mode = 3
 stream = ExtResource("14_rm7bb")
 autoplay = true
 
+[node name="WinEvent" type="Area2D" parent="."]
+position = Vector2(784, -241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinEvent"]
+shape = SubResource("RectangleShape2D_85oqs")
+
 [connection signal="dammage" from="Player" to="Camera2D" method="_on_player_dammage"]
 [connection signal="update_ui" from="Player" to="uiHeadder" method="_on_player_update_ui"]
+[connection signal="body_entered" from="WinEvent" to="." method="_on_win_event_body_entered"]

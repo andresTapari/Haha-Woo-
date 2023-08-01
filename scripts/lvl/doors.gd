@@ -4,6 +4,9 @@ extends Node2D
 signal lvl_transition(dir)
 signal pause_request()
 
+# Export
+@export_enum("Normal Door","Item Door","Boss Door") var door_type = 0
+
 # Parametros
 enum dir {player_out = 0, player_in = 1}
 var direction: dir
@@ -12,6 +15,19 @@ var flag_A: bool = false
 var flag_B: bool = false
 
 var is_open: bool = false				# bandera de la perta
+
+func _ready():
+	match door_type:
+		0:	# Normal door
+			%AnimatedSprite2D.set("animation","normal_door")
+			
+		1:	# Item door
+			%AnimatedSprite2D.set("animation","item_door")
+
+		2:	# Boos door
+			%AnimatedSprite2D.set("animation","boss_door")
+
+
 
 func _on_body_entered(body):
 	if(body.is_in_group("player")):
