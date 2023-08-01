@@ -126,6 +126,7 @@ theme_override_fonts/font = ExtResource("2_dcwx2")
 theme_override_font_sizes/font_size = 10
 text = "Team Capibara "
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HSeparator8" type="HSeparator" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
