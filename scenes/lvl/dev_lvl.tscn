@@ -1,19 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwk8gql0c6kxu"]
+[gd_scene load_steps=17 format=3 uid="uid://cwk8gql0c6kxu"]
 
 [ext_resource type="Script" path="res://scripts/lvl/dev_lvl.gd" id="1_xnij3"]
 [ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="2_caoql"]
-[ext_resource type="PackedScene" uid="uid://cqyf1nngxrxws" path="res://scenes/lvl/lvls/lvl_1.tscn" id="3_d84ba"]
+[ext_resource type="PackedScene" uid="uid://cqyf1nngxrxws" path="res://scenes/lvl/rooms/tutorial_room_1.tscn" id="3_d84ba"]
 [ext_resource type="PackedScene" uid="uid://od6yx3hynn6k" path="res://scenes/player/player.tscn" id="3_gamo2"]
 [ext_resource type="PackedScene" uid="uid://6grauelmth2s" path="res://scenes/ui/hud/uiHeadder.tscn" id="3_j8qqq"]
-[ext_resource type="PackedScene" uid="uid://cflg71otml7fi" path="res://scenes/lvl/lvls/lvl_2.tscn" id="3_mymfy"]
-[ext_resource type="PackedScene" uid="uid://dwmi586p2aqfl" path="res://scenes/lvl/lvls/lvl_3.tscn" id="4_3udhd"]
+[ext_resource type="PackedScene" uid="uid://cflg71otml7fi" path="res://scenes/lvl/rooms/tutorial_room_2.tscn" id="3_mymfy"]
+[ext_resource type="PackedScene" uid="uid://dwmi586p2aqfl" path="res://scenes/lvl/rooms/tutorial_room_3.tscn" id="4_3udhd"]
 [ext_resource type="PackedScene" uid="uid://deyn5ar642d1d" path="res://scenes/enemys/static_enemy/static_enemy.tscn" id="6_337nv"]
 [ext_resource type="PackedScene" uid="uid://wbj6chdwj578" path="res://scenes/powerUp/gun.tscn" id="6_gtvoi"]
 [ext_resource type="PackedScene" uid="uid://vh7ir7t5rsjf" path="res://scenes/lvl/camera/camera_2d.tscn" id="8_iun8b"]
 [ext_resource type="PackedScene" uid="uid://d3lxlrcqqa306" path="res://scenes/enemys/movile_enemy/enemy_boss.tscn" id="10_82yth"]
-[ext_resource type="PackedScene" uid="uid://wk5y5xbv2cmi" path="res://scenes/powerUp/powerUpLife.tscn" id="11_dj7oh"]
-[ext_resource type="PackedScene" uid="uid://h1q6px0x85s4" path="res://scenes/lvl/lvls/lvl_4.tscn" id="11_f5gjg"]
+[ext_resource type="PackedScene" path="res://scenes/powerUp/powerUpLife.tscn" id="11_dj7oh"]
+[ext_resource type="PackedScene" uid="uid://h1q6px0x85s4" path="res://scenes/lvl/rooms/tutorial_room_4.tscn" id="11_f5gjg"]
 [ext_resource type="AudioStream" uid="uid://43ho46if2nk5" path="res://assets/music/the-dying-110458.mp3" id="14_rm7bb"]
+[ext_resource type="PackedScene" uid="uid://dxmw76mkkeqbm" path="res://scenes/lvl/rooms/tutorial_room_5.tscn" id="15_no1im"]
+[ext_resource type="PackedScene" uid="uid://cbccam2e0qogb" path="res://scenes/lvl/rooms/tutorial_room_6.tscn" id="16_2ylph"]
 
 [node name="dev_lvl" type="Node2D"]
 texture_filter = 1
@@ -21,48 +23,58 @@ script = ExtResource("1_xnij3")
 
 [node name="uiHeadder" parent="." instance=ExtResource("3_j8qqq")]
 
-[node name="TileMap2" parent="." instance=ExtResource("3_mymfy")]
+[node name="tutorial_room_1" parent="." instance=ExtResource("3_d84ba")]
+
+[node name="tutorial_room_2" parent="." instance=ExtResource("3_mymfy")]
 position = Vector2(224, 0)
 
-[node name="lvl_2" parent="." instance=ExtResource("4_3udhd")]
+[node name="tutorial_room_3" parent="." instance=ExtResource("4_3udhd")]
 position = Vector2(448, 0)
 
-[node name="TileMap" parent="." instance=ExtResource("3_d84ba")]
-
-[node name="lvl_1" parent="." instance=ExtResource("11_f5gjg")]
+[node name="tutorial_room_4" parent="." instance=ExtResource("11_f5gjg")]
 position = Vector2(672, 0)
+
+[node name="tutorial_room_5" parent="." instance=ExtResource("15_no1im")]
+position = Vector2(447, -226)
+
+[node name="tutorial_room_6" parent="." instance=ExtResource("16_2ylph")]
+position = Vector2(672, -227)
 
 [node name="Camera2D" parent="." instance=ExtResource("8_iun8b")]
 process_mode = 3
 position = Vector2(112, 93)
-lvl_path = NodePath("../TileMap")
 
 [node name="movil_enemy" parent="." instance=ExtResource("2_caoql")]
+visible = false
 position = Vector2(636, 73)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy5" parent="." instance=ExtResource("2_caoql")]
+visible = false
 position = Vector2(636, 159)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy2" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(506, -207)
+visible = false
+position = Vector2(486, -166)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy3" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(506, -61)
+position = Vector2(342, -180)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy4" parent="." instance=ExtResource("2_caoql")]
-position = Vector2(360, -62)
+visible = false
+position = Vector2(627, -165)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="static_enemy" parent="." instance=ExtResource("6_337nv")]
+visible = false
 position = Vector2(336, 112)
 player_path = NodePath("../Player")
 
@@ -75,11 +87,21 @@ position = Vector2(56, -168)
 player_path = NodePath("../Player")
 
 [node name="static_enemy4" parent="." instance=ExtResource("6_337nv")]
-position = Vector2(168, -168)
+visible = false
+position = Vector2(559, -164)
+player_path = NodePath("../Player")
+
+[node name="static_enemy6" parent="." instance=ExtResource("6_337nv")]
+position = Vector2(711, -190)
+player_path = NodePath("../Player")
+
+[node name="static_enemy7" parent="." instance=ExtResource("6_337nv")]
+position = Vector2(855, -190)
 player_path = NodePath("../Player")
 
 [node name="enemy_boss" parent="." instance=ExtResource("10_82yth")]
-position = Vector2(314.91, -108.245)
+position = Vector2(785, -170)
+HEATLH = 50
 player_path = NodePath("../Player")
 
 [node name="powerUpLife" parent="." instance=ExtResource("11_dj7oh")]
