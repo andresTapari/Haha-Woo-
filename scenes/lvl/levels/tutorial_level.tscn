@@ -1,0 +1,145 @@
+[gd_scene load_steps=18 format=3 uid="uid://cwk8gql0c6kxu"]
+
+[ext_resource type="Script" path="res://scripts/lvl/dev_lvl.gd" id="1_ccvt2"]
+[ext_resource type="PackedScene" uid="uid://6grauelmth2s" path="res://scenes/ui/hud/uiHeadder.tscn" id="2_nr5mb"]
+[ext_resource type="PackedScene" uid="uid://cqyf1nngxrxws" path="res://scenes/lvl/rooms/tutorial_room_1.tscn" id="3_1sf4c"]
+[ext_resource type="PackedScene" uid="uid://cflg71otml7fi" path="res://scenes/lvl/rooms/tutorial_room_2.tscn" id="4_aroed"]
+[ext_resource type="PackedScene" uid="uid://dwmi586p2aqfl" path="res://scenes/lvl/rooms/tutorial_room_3.tscn" id="5_splht"]
+[ext_resource type="PackedScene" uid="uid://h1q6px0x85s4" path="res://scenes/lvl/rooms/tutorial_room_4.tscn" id="6_tho3e"]
+[ext_resource type="PackedScene" uid="uid://dxmw76mkkeqbm" path="res://scenes/lvl/rooms/tutorial_room_5.tscn" id="7_kfpk3"]
+[ext_resource type="PackedScene" uid="uid://cbccam2e0qogb" path="res://scenes/lvl/rooms/tutorial_room_6.tscn" id="8_3500y"]
+[ext_resource type="PackedScene" uid="uid://vh7ir7t5rsjf" path="res://scenes/lvl/camera/camera_2d.tscn" id="9_6hvwd"]
+[ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="10_5xexc"]
+[ext_resource type="PackedScene" uid="uid://deyn5ar642d1d" path="res://scenes/enemys/static_enemy/static_enemy.tscn" id="11_b04pc"]
+[ext_resource type="PackedScene" uid="uid://d3lxlrcqqa306" path="res://scenes/enemys/movile_enemy/enemy_boss.tscn" id="12_b7tj2"]
+[ext_resource type="PackedScene" path="res://scenes/powerUp/powerUpLife.tscn" id="13_ggd5b"]
+[ext_resource type="PackedScene" uid="uid://wbj6chdwj578" path="res://scenes/powerUp/gun.tscn" id="14_frtei"]
+[ext_resource type="PackedScene" uid="uid://od6yx3hynn6k" path="res://scenes/player/player.tscn" id="15_1fafu"]
+[ext_resource type="AudioStream" uid="uid://43ho46if2nk5" path="res://assets/music/the-dying-110458.mp3" id="16_0t4n0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85oqs"]
+size = Vector2(32, 20)
+
+[node name="dev_lvl" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_ccvt2")
+
+[node name="uiHeadder" parent="." instance=ExtResource("2_nr5mb")]
+
+[node name="tutorial_room_1" parent="." instance=ExtResource("3_1sf4c")]
+
+[node name="tutorial_room_2" parent="." instance=ExtResource("4_aroed")]
+position = Vector2(224, 0)
+
+[node name="tutorial_room_3" parent="." instance=ExtResource("5_splht")]
+position = Vector2(448, 0)
+
+[node name="tutorial_room_4" parent="." instance=ExtResource("6_tho3e")]
+position = Vector2(672, 0)
+
+[node name="tutorial_room_5" parent="." instance=ExtResource("7_kfpk3")]
+position = Vector2(447, -226)
+
+[node name="tutorial_room_6" parent="." instance=ExtResource("8_3500y")]
+position = Vector2(672, -227)
+
+[node name="Camera2D" parent="." instance=ExtResource("9_6hvwd")]
+process_mode = 3
+position = Vector2(112, 93)
+
+[node name="movil_enemy" parent="." instance=ExtResource("10_5xexc")]
+position = Vector2(636, 73)
+SPEED = 2000.0
+player_path = NodePath("../Player")
+
+[node name="movil_enemy5" parent="." instance=ExtResource("10_5xexc")]
+position = Vector2(636, 159)
+SPEED = 2000.0
+player_path = NodePath("../Player")
+
+[node name="movil_enemy2" parent="." instance=ExtResource("10_5xexc")]
+position = Vector2(521, -177)
+SPEED = 2000.0
+player_path = NodePath("../Player")
+
+[node name="movil_enemy3" parent="." instance=ExtResource("10_5xexc")]
+position = Vector2(560, -87)
+SPEED = 2000.0
+player_path = NodePath("../Player")
+
+[node name="movil_enemy4" parent="." instance=ExtResource("10_5xexc")]
+position = Vector2(593, -177)
+SPEED = 2000.0
+player_path = NodePath("../Player")
+
+[node name="static_enemy" parent="." instance=ExtResource("11_b04pc")]
+position = Vector2(336, 112)
+player_path = NodePath("../Player")
+
+[node name="static_enemy4" parent="." instance=ExtResource("11_b04pc")]
+position = Vector2(632, -123)
+player_path = NodePath("../Player")
+
+[node name="static_enemy5" parent="." instance=ExtResource("11_b04pc")]
+position = Vector2(488, -122)
+player_path = NodePath("../Player")
+
+[node name="static_enemy6" parent="." instance=ExtResource("11_b04pc")]
+position = Vector2(746, -154)
+player_path = NodePath("../Player")
+
+[node name="static_enemy7" parent="." instance=ExtResource("11_b04pc")]
+position = Vector2(822, -154)
+player_path = NodePath("../Player")
+
+[node name="static_enemy8" parent="." instance=ExtResource("11_b04pc")]
+position = Vector2(822, -77)
+player_path = NodePath("../Player")
+
+[node name="static_enemy9" parent="." instance=ExtResource("11_b04pc")]
+position = Vector2(745, -77)
+player_path = NodePath("../Player")
+
+[node name="enemy_boss" parent="." instance=ExtResource("12_b7tj2")]
+position = Vector2(785, -170)
+SCORE = 100
+HEATLH = 50
+player_path = NodePath("../Player")
+
+[node name="powerUpLife" parent="." instance=ExtResource("13_ggd5b")]
+position = Vector2(784, 66)
+
+[node name="powerUp" parent="." instance=ExtResource("14_frtei")]
+position = Vector2(787, 167)
+
+[node name="powerUpLife2" parent="." instance=ExtResource("13_ggd5b")]
+position = Vector2(489, -36)
+
+[node name="powerUpLife3" parent="." instance=ExtResource("13_ggd5b")]
+position = Vector2(727, -36)
+
+[node name="powerUpLife4" parent="." instance=ExtResource("13_ggd5b")]
+position = Vector2(839, -36)
+
+[node name="powerUp2" parent="." instance=ExtResource("14_frtei")]
+position = Vector2(634, -37)
+
+[node name="Player" parent="." instance=ExtResource("15_1fafu")]
+unique_name_in_owner = true
+position = Vector2(111, 112)
+rotation = -1.57079
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("16_0t4n0")
+autoplay = true
+
+[node name="WinEvent" type="Area2D" parent="."]
+position = Vector2(784, -241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinEvent"]
+shape = SubResource("RectangleShape2D_85oqs")
+
+[connection signal="dammage" from="Player" to="Camera2D" method="_on_player_dammage"]
+[connection signal="update_ui" from="Player" to="uiHeadder" method="_on_player_update_ui"]
+[connection signal="body_entered" from="WinEvent" to="." method="_on_win_event_body_entered"]

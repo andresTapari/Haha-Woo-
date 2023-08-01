@@ -1,0 +1,122 @@
+[gd_scene load_steps=2 format=3 uid="uid://d5ihgv4xs2th"]
+
+[ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="1_84wyd"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_font_sizes/font_size = 10
+tab_alignment = 1
+
+[node name="Sound" type="TabBar" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_84wyd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_font_sizes/font_size = 10
+text = "Sound Fx"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+value = 100.0
+
+[node name="CheckButton2" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_font_sizes/font_size = 10
+text = "Music"
+
+[node name="HSlider2" type="HSlider" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+value = 100.0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Video" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="System" type="TabBar" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_font_sizes/font_size = 10
+text = "CANCELAR"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_font_sizes/font_size = 10
+text = "ACEPTAR"
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
