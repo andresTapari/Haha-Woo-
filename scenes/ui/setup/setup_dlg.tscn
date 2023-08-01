@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d5ihgv4xs2th"]
+[gd_scene load_steps=4 format=3 uid="uid://d5ihgv4xs2th"]
 
 [ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="1_84wyd"]
+[ext_resource type="Script" path="res://scripts/ui/setup_dlg.gd" id="1_403a5"]
+[ext_resource type="AudioStream" uid="uid://yhkj47ha7c4a" path="res://assets/music/8-bit-game-158815.mp3" id="3_7usve"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -8,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_403a5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -43,26 +46,28 @@ size_flags_vertical = 3
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
 layout_mode = 2
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+[node name="FxBtn_en" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_84wyd")
 theme_override_font_sizes/font_size = 10
+button_pressed = true
 text = "Sound Fx"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+[node name="FxSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 value = 100.0
 
-[node name="CheckButton2" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+[node name="MusicBtn_en" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_84wyd")
 theme_override_font_sizes/font_size = 10
+button_pressed = true
 text = "Music"
 
-[node name="HSlider2" type="HSlider" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 value = 100.0
@@ -120,3 +125,13 @@ layout_mode = 2
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7usve")
+autoplay = true
+bus = &"Music"
+
+[connection signal="toggled" from="VBoxContainer/TabContainer/Sound/VBoxContainer/FxBtn_en" to="." method="_on_fx_btn_en_toggled"]
+[connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/VBoxContainer/FxSlider" to="." method="_on_fx_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/TabContainer/Sound/VBoxContainer/MusicBtn_en" to="." method="_on_music_btn_en_toggled"]
+[connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]

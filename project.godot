@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Screenshots="*res://scripts/GLOBALS/screenshots.gd"
 Score="*res://scripts/GLOBALS/score.gd"
 SoundFx="*res://scripts/GLOBALS/soundFx.gd"
+System="*res://scripts/GLOBALS/system.gd"
 
 [display]
 
