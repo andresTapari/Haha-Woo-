@@ -60,7 +60,9 @@ radius = 7.0
 [node name="enemy_boss" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 script = ExtResource("1_5cv0y")
-cadence = 0.75
+NavigationAgent2D_path = NodePath("NavigationAgent2D")
+RayCast2D_path = NodePath("RayCast2D")
+VisibleOnScreenEnabler2D_path = NodePath("VisibleOnScreenEnabler2D")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
