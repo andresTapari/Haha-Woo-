@@ -48,73 +48,61 @@ process_mode = 3
 position = Vector2(112, 93)
 
 [node name="movil_enemy" parent="." instance=ExtResource("2_caoql")]
-visible = false
 position = Vector2(636, 73)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy5" parent="." instance=ExtResource("2_caoql")]
-visible = false
 position = Vector2(636, 159)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy2" parent="." instance=ExtResource("2_caoql")]
-visible = false
 position = Vector2(521, -177)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy3" parent="." instance=ExtResource("2_caoql")]
-visible = false
 position = Vector2(560, -87)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="movil_enemy4" parent="." instance=ExtResource("2_caoql")]
-visible = false
 position = Vector2(593, -177)
 SPEED = 2000.0
 player_path = NodePath("../Player")
 
 [node name="static_enemy" parent="." instance=ExtResource("6_337nv")]
-visible = false
 position = Vector2(336, 112)
 player_path = NodePath("../Player")
 
-[node name="static_enemy2" parent="." instance=ExtResource("6_337nv")]
-visible = false
-position = Vector2(57, -56)
-player_path = NodePath("../Player")
-
-[node name="static_enemy3" parent="." instance=ExtResource("6_337nv")]
-visible = false
-position = Vector2(56, -168)
-player_path = NodePath("../Player")
-
 [node name="static_enemy4" parent="." instance=ExtResource("6_337nv")]
-visible = false
 position = Vector2(632, -123)
 player_path = NodePath("../Player")
 
 [node name="static_enemy5" parent="." instance=ExtResource("6_337nv")]
-visible = false
 position = Vector2(488, -122)
 player_path = NodePath("../Player")
 
 [node name="static_enemy6" parent="." instance=ExtResource("6_337nv")]
-visible = false
 position = Vector2(746, -154)
 player_path = NodePath("../Player")
 
 [node name="static_enemy7" parent="." instance=ExtResource("6_337nv")]
-visible = false
 position = Vector2(822, -154)
 player_path = NodePath("../Player")
 
+[node name="static_enemy8" parent="." instance=ExtResource("6_337nv")]
+position = Vector2(822, -77)
+player_path = NodePath("../Player")
+
+[node name="static_enemy9" parent="." instance=ExtResource("6_337nv")]
+position = Vector2(745, -77)
+player_path = NodePath("../Player")
+
 [node name="enemy_boss" parent="." instance=ExtResource("10_82yth")]
-visible = false
 position = Vector2(785, -170)
+SCORE = 100
 HEATLH = 50
 player_path = NodePath("../Player")
 
@@ -123,6 +111,18 @@ position = Vector2(784, 66)
 
 [node name="powerUp" parent="." instance=ExtResource("6_gtvoi")]
 position = Vector2(787, 167)
+
+[node name="powerUpLife2" parent="." instance=ExtResource("11_dj7oh")]
+position = Vector2(489, -36)
+
+[node name="powerUpLife3" parent="." instance=ExtResource("11_dj7oh")]
+position = Vector2(727, -36)
+
+[node name="powerUpLife4" parent="." instance=ExtResource("11_dj7oh")]
+position = Vector2(839, -36)
+
+[node name="powerUp2" parent="." instance=ExtResource("6_gtvoi")]
+position = Vector2(634, -37)
 
 [node name="Player" parent="." instance=ExtResource("3_gamo2")]
 unique_name_in_owner = true
