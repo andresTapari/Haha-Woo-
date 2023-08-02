@@ -62,6 +62,7 @@ text = "Sound Fx"
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
+step = 10.0
 value = 100.0
 
 [node name="MusicBtn_en" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
@@ -77,6 +78,7 @@ text = "Music"
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
+step = 10.0
 value = 100.0
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
