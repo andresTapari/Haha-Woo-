@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://n4udfh4drfim" path="res://scenes/enemys/movile_enemy/movil_enemy.tscn" id="10_5xexc"]
 [ext_resource type="PackedScene" uid="uid://deyn5ar642d1d" path="res://scenes/enemys/static_enemy/static_enemy.tscn" id="11_b04pc"]
 [ext_resource type="PackedScene" uid="uid://d3lxlrcqqa306" path="res://scenes/enemys/movile_enemy/enemy_boss.tscn" id="12_b7tj2"]
-[ext_resource type="PackedScene" path="res://scenes/powerUp/powerUpLife.tscn" id="13_ggd5b"]
+[ext_resource type="PackedScene" uid="uid://wk5y5xbv2cmi" path="res://scenes/powerUp/powerUpLife.tscn" id="13_ggd5b"]
 [ext_resource type="PackedScene" uid="uid://wbj6chdwj578" path="res://scenes/powerUp/gun.tscn" id="14_frtei"]
 [ext_resource type="PackedScene" uid="uid://od6yx3hynn6k" path="res://scenes/player/player.tscn" id="15_1fafu"]
 [ext_resource type="AudioStream" uid="uid://43ho46if2nk5" path="res://assets/music/the-dying-110458.mp3" id="16_0t4n0"]
@@ -133,6 +133,7 @@ rotation = -1.57079
 process_mode = 3
 stream = ExtResource("16_0t4n0")
 autoplay = true
+bus = &"Music"
 
 [node name="WinEvent" type="Area2D" parent="."]
 position = Vector2(784, -241)

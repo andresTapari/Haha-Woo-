@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d5ihgv4xs2th"]
+[gd_scene load_steps=3 format=3 uid="uid://d5ihgv4xs2th"]
 
-[ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="1_84wyd"]
-[ext_resource type="Script" path="res://scripts/ui/setup_dlg.gd" id="1_403a5"]
-[ext_resource type="AudioStream" uid="uid://yhkj47ha7c4a" path="res://assets/music/8-bit-game-158815.mp3" id="3_7usve"]
+[ext_resource type="Script" path="res://scripts/ui/setup_dlg.gd" id="1_ucj1n"]
+[ext_resource type="FontFile" uid="uid://rfl04y1mlf2l" path="res://assets/fonts/arcadepix/ARCADEPI.TTF" id="2_plpdj"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -10,7 +9,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_403a5")
+script = ExtResource("1_ucj1n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -22,13 +25,13 @@ layout_mode = 2
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_fonts/font = ExtResource("2_plpdj")
 theme_override_font_sizes/font_size = 10
 tab_alignment = 1
 
 [node name="Sound" type="TabBar" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_fonts/font = ExtResource("2_plpdj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Sound"]
 layout_mode = 1
@@ -47,27 +50,31 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="FxBtn_en" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_fonts/font = ExtResource("2_plpdj")
 theme_override_font_sizes/font_size = 10
 button_pressed = true
 text = "Sound Fx"
 
 [node name="FxSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 value = 100.0
 
 [node name="MusicBtn_en" type="CheckButton" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_fonts/font = ExtResource("2_plpdj")
 theme_override_font_sizes/font_size = 10
 button_pressed = true
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="VBoxContainer/TabContainer/Sound/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 value = 100.0
@@ -101,9 +108,9 @@ size_flags_vertical = 8
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Btn_cancelar" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_fonts/font = ExtResource("2_plpdj")
 theme_override_font_sizes/font_size = 10
 text = "CANCELAR"
 
@@ -112,9 +119,9 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Btn_aceptar" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_84wyd")
+theme_override_fonts/font = ExtResource("2_plpdj")
 theme_override_font_sizes/font_size = 10
 text = "ACEPTAR"
 
@@ -126,12 +133,9 @@ layout_mode = 2
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_7usve")
-autoplay = true
-bus = &"Music"
-
 [connection signal="toggled" from="VBoxContainer/TabContainer/Sound/VBoxContainer/FxBtn_en" to="." method="_on_fx_btn_en_toggled"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/VBoxContainer/FxSlider" to="." method="_on_fx_slider_value_changed"]
 [connection signal="toggled" from="VBoxContainer/TabContainer/Sound/VBoxContainer/MusicBtn_en" to="." method="_on_music_btn_en_toggled"]
 [connection signal="value_changed" from="VBoxContainer/TabContainer/Sound/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Btn_cancelar" to="." method="_on_btn_cancelar_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Btn_aceptar" to="." method="_on_btn_aceptar_pressed"]
